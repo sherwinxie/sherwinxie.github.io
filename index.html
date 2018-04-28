@@ -385,6 +385,193 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://sherwinxie.xyz/常见的算法思想/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="SherwinX">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="谢玮のBlog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/常见的算法思想/" itemprop="url">常见的算法思想</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-28T00:00:00+08:00">
+                2018-03-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="1、算法特征"><a href="#1、算法特征" class="headerlink" title="1、算法特征"></a>1、算法特征</h1><p>算法的英文名称是Algorithm，这个词在1957年之前在Webster’s New World Dictionary(《韦氏新世界词典》)中还未出现，只能找到带有它的古代涵义的较老形式的“Algorism”(算术)，是指用阿拉伯数字进行算术运算的过程。在中世纪时，珠算家用算盘进行计算，而算术家用算术进行计算。<br>根据经验和发展结论得出，算法应该具有如下五个重要的特征。<br>（1）有穷性：保证执行有限步骤之后结束；</p>
+<p>（2）确切性：每一步骤都有确切的定义；</p>
+<p>（3）输入：每个算法有零个或多个输入，以刻画运算对象的初始情况，所谓零个输入是指算法本身定除了初始条件；</p>
+<p>（4）输出：每个算法有一个或多个输出，显示对输入数据加工后的结果。没有输出的算法是毫无意义的；</p>
+<p>（5）可行性：在原则上算法能够精确地运行，进行有限次运算后即可完成一种运算。</p>
+<h2 id="1-1-计算机中的算法"><a href="#1-1-计算机中的算法" class="headerlink" title="1.1 计算机中的算法"></a>1.1 计算机中的算法</h2><p>计算机中算法可分为如下两大类：</p>
+<p>（1）数值运算算法：求解数值。</p>
+<p>（2）非数值运算算法：事务管理领域。</p>
+<p>算法是计算机处理信息的本质，因为计算机程序本质上是一个算法，告诉计算机确切的步骤来执行一个指定的任务，如计算职工的薪水或打印学生的成绩单。一般地，当算法在处理信息时，数据会从输入设备读取，写入输出设备，可能保存起来以供以后使用。</p>
+<p>著名计算机科学家沃思提出了下面的公式。</p>
+<p>数据结构+算法=程序</p>
+<p>实际上，一个程序应当采用结构化程序设计方法进行程序设计，并且用某一种计算机语言来表示。因此，可以用下面的公式表示。</p>
+<p>程序=算法+数据结构+程序设计方法+语言和环境</p>
+<h1 id="2-常见的算法思想"><a href="#2-常见的算法思想" class="headerlink" title="2. 常见的算法思想"></a>2. 常见的算法思想</h1><h2 id="比较笨的-穷举-算法思想"><a href="#比较笨的-穷举-算法思想" class="headerlink" title="比较笨的 穷举 算法思想"></a>比较笨的 穷举 算法思想</h2><p>穷举法（ExhaustiveAttack method)，又称为枚举法。它是用于穷尽每一种可能的情况，效率不高，适用于没有明显规律的情况，同时又最为耗时的一种解决实际问题的算法思想。</p>
+<p>穷举法也是一种针对于密码的破译方法，比如一个四位并且全部由数字组成其密码共有10000种组合，也就是说最多我们会尝试9999次才能找到真正的密码。利用这种方法我们可以运用计算机来进行逐个推算，也就是说用我们破解任何一个密码也都只是一个时间问题，缺点数据量巨大的话会导致时间崩溃。</p>
+<p>设计思想：在可能的解空间中穷举出每一种可能的解，并对每一个可能解进行判断，从中得到问题的答案。</p>
+<h2 id="聪明一点的-递推-算法思想"><a href="#聪明一点的-递推-算法思想" class="headerlink" title="聪明一点的 递推 算法思想"></a>聪明一点的 递推 算法思想</h2><p>递推（recurrence）法，从已知到未知，从小到大。</p>
+<p>典型代表fibonacci数列递推求法（后一项等于前两项之和）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">int fibonacci(int n)&#123;</span><br><span class="line">    int fn_1 = 0;</span><br><span class="line">    int fn   = 1;</span><br><span class="line">    for(int i=0; i&lt;n; i++) &#123;</span><br><span class="line">       int t = fn</span><br><span class="line">       fn = fn + fn_1;</span><br><span class="line">       fn_1  = t;</span><br><span class="line">    &#125;</span><br><span class="line">    return fn;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="充分利用自己的-递归-算法思想"><a href="#充分利用自己的-递归-算法思想" class="headerlink" title="充分利用自己的 递归 算法思想"></a>充分利用自己的 递归 算法思想</h2><p>所谓递归（recursion）算法，就是一种直接或间接地调用原算法本身的一种算法，与递推不同的是从未知到已知，从大到小，再从小到大。</p>
+<p>　　递归算法就是在程序中不断反复调用自身来达到求解问题的方法。这里的重点是调用自身，这就要求待求解的问题能够分解为相同问题的一个子问题。这样 ，通过多次递归调用，便可以完成求解。<br>　　<br>递归调用是一个函数在它的函数体内调用它自身的函数调用方式，这种函数也称为“递归函数”。在递归函数中，主调函数又是被调函数。执行递归函数将反复调用其自身，每调用一次就进入新的一层。 </p>
+<p>函数的递归调用分两种情况：直接递归和间接递归。 </p>
+<ul>
+<li>直接递归：即在函数中调用函数本身。 </li>
+<li>间接递归：即间接地调用一个函数，如出如func_a 调用 func_b, func_b 又调用func_a。间接递归用得不多。</li>
+</ul>
+<p>递归与分治的算法思想往往是相伴而生的，它们在各类算法中使用非常频繁，应用递归和分治的算法思想有时可以设计出代码简洁且比较高效的算法来。</p>
+<p>　　在解决一些比较复杂的问题，特别是解决一些规模较大得问题时，常常将问题进行分解。具体来说，就是将一个规模较大的问题分割成规模较小的同类问题，然后将这些小问题的子问题逐个加以解决，最终也就将整个大问题解决了。这种思想称之为分治。在解决一些问题比较复杂、计算量庞大的问题时经常被用到。</p>
+<p>　　最为经典的使用分治思想设计的算法就是“折半查找算法”。折半查找算法利用了元素之间的顺序关系（有序序列），采用分而治之的策略，不断缩小问题的规模，每次都将问题的规模减小至上一次的一半。</p>
+<p>　　</p>
+<p>典型代表fibonacci数列递归求法（后一项等于前两项之和）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> public static int fibonacci(int n) &#123;</span><br><span class="line">        if (n == 1 || n == 2) &#123;     // 递归终止条件</span><br><span class="line">            return 1;      </span><br><span class="line">        &#125;</span><br><span class="line">        return fibonacci(n - 1) + fibonacci(n - 2); // 相同重复逻辑，缩小问题的规模</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="各个击破的-分治-算法思想"><a href="#各个击破的-分治-算法思想" class="headerlink" title="各个击破的 分治 算法思想"></a>各个击破的 分治 算法思想</h2><p>分治法，字面上的解释是“分而治之”，就是把一个复杂的问题分成两个或更多的相同或相似的子问题，再把子问题分成更小的子问题……直到最后子问题可以简单的直接求解，原问题的解即子问题的解的合并。这个技巧是很多高效算法的基础，如排序算法(快速排序，归并排序)，傅立叶变换(快速傅立叶变换)……</p>
+<p>设计思想：将一个难以直接解决的大问题，分割成一些规模较小的相同问题，相互独立，以便各个击破，分而治之。这自然导致递归过程的产生。分治与递归像一对孪生兄弟，经常同时应用在算法设计之中，并由此产生许多高效算法。</p>
+<h2 id="子问题联系的-动态规划-算法思想"><a href="#子问题联系的-动态规划-算法思想" class="headerlink" title="子问题联系的 动态规划 算法思想"></a>子问题联系的 动态规划 算法思想</h2><p>基本思想与分治法类似，也是将待求解的问题分解为若干个子问题（阶段），按顺序求解子阶段，前一子问题的解，为后一子问题的求解提供了有用的信息。在求解任一子问题时，列出各种可能的局部解，通过决策保留那些有可能达到最优的局部解，丢弃其他局部解。依次解决各子问题，最后一个子问题就是初始问题的解。</p>
+<p>由于动态规划解决的问题多数有重叠子问题这个特点，为减少重复计算，对每一个子问题只解一次，将其不同阶段的不同状态保存在一个二维数组中。</p>
+<p>与分治法最大的差别是：适合于用动态规划法求解的问题，经分解后得到的子问题往往不是互相独立的（即下一个子阶段的求解是建立在上一个子阶段的解的基础上，进行进一步的求解）。</p>
+<h2 id="局部最优的-贪心-算法思想"><a href="#局部最优的-贪心-算法思想" class="headerlink" title="局部最优的 贪心 算法思想"></a>局部最优的 贪心 算法思想</h2><p>所谓贪心算法是指，在对问题求解时，总是做出在当前看来是最好的选择。也就是说，不从整体最优上加以考虑，他所做出的仅是在某种意义上的局部最优解。</p>
+<p>贪心算法没有固定的算法框架，算法设计的关键是贪心策略的选择。必须注意的是，贪心算法不是对所有问题都能得到整体最优解，选择的贪心策略必须具备无后效性，即某个状态以后的过程不会影响以前的状态，只与当前状态有关。</p>
+<p>有点像alphaGo下围棋：</p>
+<p>从问题的某一初始解出发；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">while （能朝给定总目标胜率前进一步）</span><br><span class="line">    &#123; </span><br><span class="line">          利用可行的决策，求出可行解的一个解元素；</span><br><span class="line">    &#125;</span><br><span class="line">    由所有解元素组合成问题的一个可行解；</span><br></pre></td></tr></table></figure>
+<h2 id="走迷宫一样的-回溯-算法思想"><a href="#走迷宫一样的-回溯-算法思想" class="headerlink" title="走迷宫一样的 回溯 算法思想"></a>走迷宫一样的 回溯 算法思想</h2><p>回溯算法实际上一个类似枚举的搜索尝试过程，主要是在搜索尝试过程中寻找问题的解，当发现已不满足求解条件时，就“回溯”返回，尝试别的路径。</p>
+<p>回溯法是一种选优搜索法，按选优条件向前搜索，以达到目标。但当探索到某一步时，发现原先选择并不优或达不到目标，就退回一步重新选择，这种走不通就退回再走的技术为回溯法，而满足回溯条件的某个状态的点称为“回溯点”。</p>
+<p>基本思想:  在包含问题的所有解的解空间树中，按照深度优先搜索的策略，从根结点出发深度探索解空间树。当探索到某一结点时，要先判断该结点是否包含问题的解，如果包含，就从该结点出发继续探索下去，如果该结点不包含问题的解，则逐层向其祖先结点回溯。（其实回溯法就是对隐式图的深度优先搜索算法）。</p>
+<pre><code>若用回溯法求问题的所有解时，要回溯到根，且根结点的所有可行的子树都要已被搜索遍才结束。
+
+而若使用回溯法求任一个解时，只要搜索到问题的一个解就可以结束。
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://sherwinxie.xyz/Redis-JCF/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -839,193 +1026,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://sherwinxie.xyz/常见的算法思想/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="SherwinX">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="谢玮のBlog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/常见的算法思想/" itemprop="url">Redis & JCF</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-27T23:54:22+08:00">
-                2018-03-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/技术/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="1、算法特征"><a href="#1、算法特征" class="headerlink" title="1、算法特征"></a>1、算法特征</h1><p>算法的英文名称是Algorithm，这个词在1957年之前在Webster’s New World Dictionary(《韦氏新世界词典》)中还未出现，只能找到带有它的古代涵义的较老形式的“Algorism”(算术)，是指用阿拉伯数字进行算术运算的过程。在中世纪时，珠算家用算盘进行计算，而算术家用算术进行计算。<br>根据经验和发展结论得出，算法应该具有如下五个重要的特征。<br>（1）有穷性：保证执行有限步骤之后结束；</p>
-<p>（2）确切性：每一步骤都有确切的定义；</p>
-<p>（3）输入：每个算法有零个或多个输入，以刻画运算对象的初始情况，所谓零个输入是指算法本身定除了初始条件；</p>
-<p>（4）输出：每个算法有一个或多个输出，显示对输入数据加工后的结果。没有输出的算法是毫无意义的；</p>
-<p>（5）可行性：在原则上算法能够精确地运行，进行有限次运算后即可完成一种运算。</p>
-<h2 id="1-1-计算机中的算法"><a href="#1-1-计算机中的算法" class="headerlink" title="1.1 计算机中的算法"></a>1.1 计算机中的算法</h2><p>计算机中算法可分为如下两大类：</p>
-<p>（1）数值运算算法：求解数值。</p>
-<p>（2）非数值运算算法：事务管理领域。</p>
-<p>算法是计算机处理信息的本质，因为计算机程序本质上是一个算法，告诉计算机确切的步骤来执行一个指定的任务，如计算职工的薪水或打印学生的成绩单。一般地，当算法在处理信息时，数据会从输入设备读取，写入输出设备，可能保存起来以供以后使用。</p>
-<p>著名计算机科学家沃思提出了下面的公式。</p>
-<p>数据结构+算法=程序</p>
-<p>实际上，一个程序应当采用结构化程序设计方法进行程序设计，并且用某一种计算机语言来表示。因此，可以用下面的公式表示。</p>
-<p>程序=算法+数据结构+程序设计方法+语言和环境</p>
-<h1 id="2-常见的算法思想"><a href="#2-常见的算法思想" class="headerlink" title="2. 常见的算法思想"></a>2. 常见的算法思想</h1><h2 id="比较笨的-穷举-算法思想"><a href="#比较笨的-穷举-算法思想" class="headerlink" title="比较笨的 穷举 算法思想"></a>比较笨的 穷举 算法思想</h2><p>穷举法（ExhaustiveAttack method)，又称为枚举法。它是用于穷尽每一种可能的情况，效率不高，适用于没有明显规律的情况，同时又最为耗时的一种解决实际问题的算法思想。</p>
-<p>穷举法也是一种针对于密码的破译方法，比如一个四位并且全部由数字组成其密码共有10000种组合，也就是说最多我们会尝试9999次才能找到真正的密码。利用这种方法我们可以运用计算机来进行逐个推算，也就是说用我们破解任何一个密码也都只是一个时间问题，缺点数据量巨大的话会导致时间崩溃。</p>
-<p>设计思想：在可能的解空间中穷举出每一种可能的解，并对每一个可能解进行判断，从中得到问题的答案。</p>
-<h2 id="聪明一点的-递推-算法思想"><a href="#聪明一点的-递推-算法思想" class="headerlink" title="聪明一点的 递推 算法思想"></a>聪明一点的 递推 算法思想</h2><p>递推（recurrence）法，从已知到未知，从小到大。</p>
-<p>典型代表fibonacci数列递推求法（后一项等于前两项之和）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">int fibonacci(int n)&#123;</span><br><span class="line">    int fn_1 = 0;</span><br><span class="line">    int fn   = 1;</span><br><span class="line">    for(int i=0; i&lt;n; i++) &#123;</span><br><span class="line">       int t = fn</span><br><span class="line">       fn = fn + fn_1;</span><br><span class="line">       fn_1  = t;</span><br><span class="line">    &#125;</span><br><span class="line">    return fn;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="充分利用自己的-递归-算法思想"><a href="#充分利用自己的-递归-算法思想" class="headerlink" title="充分利用自己的 递归 算法思想"></a>充分利用自己的 递归 算法思想</h2><p>所谓递归（recursion）算法，就是一种直接或间接地调用原算法本身的一种算法，与递推不同的是从未知到已知，从大到小，再从小到大。</p>
-<p>　　递归算法就是在程序中不断反复调用自身来达到求解问题的方法。这里的重点是调用自身，这就要求待求解的问题能够分解为相同问题的一个子问题。这样 ，通过多次递归调用，便可以完成求解。<br>　　<br>递归调用是一个函数在它的函数体内调用它自身的函数调用方式，这种函数也称为“递归函数”。在递归函数中，主调函数又是被调函数。执行递归函数将反复调用其自身，每调用一次就进入新的一层。 </p>
-<p>函数的递归调用分两种情况：直接递归和间接递归。 </p>
-<ul>
-<li>直接递归：即在函数中调用函数本身。 </li>
-<li>间接递归：即间接地调用一个函数，如出如func_a 调用 func_b, func_b 又调用func_a。间接递归用得不多。</li>
-</ul>
-<p>递归与分治的算法思想往往是相伴而生的，它们在各类算法中使用非常频繁，应用递归和分治的算法思想有时可以设计出代码简洁且比较高效的算法来。</p>
-<p>　　在解决一些比较复杂的问题，特别是解决一些规模较大得问题时，常常将问题进行分解。具体来说，就是将一个规模较大的问题分割成规模较小的同类问题，然后将这些小问题的子问题逐个加以解决，最终也就将整个大问题解决了。这种思想称之为分治。在解决一些问题比较复杂、计算量庞大的问题时经常被用到。</p>
-<p>　　最为经典的使用分治思想设计的算法就是“折半查找算法”。折半查找算法利用了元素之间的顺序关系（有序序列），采用分而治之的策略，不断缩小问题的规模，每次都将问题的规模减小至上一次的一半。</p>
-<p>　　</p>
-<p>典型代表fibonacci数列递归求法（后一项等于前两项之和）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> public static int fibonacci(int n) &#123;</span><br><span class="line">        if (n == 1 || n == 2) &#123;     // 递归终止条件</span><br><span class="line">            return 1;      </span><br><span class="line">        &#125;</span><br><span class="line">        return fibonacci(n - 1) + fibonacci(n - 2); // 相同重复逻辑，缩小问题的规模</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="各个击破的-分治-算法思想"><a href="#各个击破的-分治-算法思想" class="headerlink" title="各个击破的 分治 算法思想"></a>各个击破的 分治 算法思想</h2><p>分治法，字面上的解释是“分而治之”，就是把一个复杂的问题分成两个或更多的相同或相似的子问题，再把子问题分成更小的子问题……直到最后子问题可以简单的直接求解，原问题的解即子问题的解的合并。这个技巧是很多高效算法的基础，如排序算法(快速排序，归并排序)，傅立叶变换(快速傅立叶变换)……</p>
-<p>设计思想：将一个难以直接解决的大问题，分割成一些规模较小的相同问题，相互独立，以便各个击破，分而治之。这自然导致递归过程的产生。分治与递归像一对孪生兄弟，经常同时应用在算法设计之中，并由此产生许多高效算法。</p>
-<h2 id="子问题联系的-动态规划-算法思想"><a href="#子问题联系的-动态规划-算法思想" class="headerlink" title="子问题联系的 动态规划 算法思想"></a>子问题联系的 动态规划 算法思想</h2><p>基本思想与分治法类似，也是将待求解的问题分解为若干个子问题（阶段），按顺序求解子阶段，前一子问题的解，为后一子问题的求解提供了有用的信息。在求解任一子问题时，列出各种可能的局部解，通过决策保留那些有可能达到最优的局部解，丢弃其他局部解。依次解决各子问题，最后一个子问题就是初始问题的解。</p>
-<p>由于动态规划解决的问题多数有重叠子问题这个特点，为减少重复计算，对每一个子问题只解一次，将其不同阶段的不同状态保存在一个二维数组中。</p>
-<p>与分治法最大的差别是：适合于用动态规划法求解的问题，经分解后得到的子问题往往不是互相独立的（即下一个子阶段的求解是建立在上一个子阶段的解的基础上，进行进一步的求解）。</p>
-<h2 id="局部最优的-贪心-算法思想"><a href="#局部最优的-贪心-算法思想" class="headerlink" title="局部最优的 贪心 算法思想"></a>局部最优的 贪心 算法思想</h2><p>所谓贪心算法是指，在对问题求解时，总是做出在当前看来是最好的选择。也就是说，不从整体最优上加以考虑，他所做出的仅是在某种意义上的局部最优解。</p>
-<p>贪心算法没有固定的算法框架，算法设计的关键是贪心策略的选择。必须注意的是，贪心算法不是对所有问题都能得到整体最优解，选择的贪心策略必须具备无后效性，即某个状态以后的过程不会影响以前的状态，只与当前状态有关。</p>
-<p>有点像alphaGo下围棋：</p>
-<p>从问题的某一初始解出发；</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">while （能朝给定总目标胜率前进一步）</span><br><span class="line">    &#123; </span><br><span class="line">          利用可行的决策，求出可行解的一个解元素；</span><br><span class="line">    &#125;</span><br><span class="line">    由所有解元素组合成问题的一个可行解；</span><br></pre></td></tr></table></figure>
-<h2 id="走迷宫一样的-回溯-算法思想"><a href="#走迷宫一样的-回溯-算法思想" class="headerlink" title="走迷宫一样的 回溯 算法思想"></a>走迷宫一样的 回溯 算法思想</h2><p>回溯算法实际上一个类似枚举的搜索尝试过程，主要是在搜索尝试过程中寻找问题的解，当发现已不满足求解条件时，就“回溯”返回，尝试别的路径。</p>
-<p>回溯法是一种选优搜索法，按选优条件向前搜索，以达到目标。但当探索到某一步时，发现原先选择并不优或达不到目标，就退回一步重新选择，这种走不通就退回再走的技术为回溯法，而满足回溯条件的某个状态的点称为“回溯点”。</p>
-<p>基本思想:  在包含问题的所有解的解空间树中，按照深度优先搜索的策略，从根结点出发深度探索解空间树。当探索到某一结点时，要先判断该结点是否包含问题的解，如果包含，就从该结点出发继续探索下去，如果该结点不包含问题的解，则逐层向其祖先结点回溯。（其实回溯法就是对隐式图的深度优先搜索算法）。</p>
-<pre><code>若用回溯法求问题的所有解时，要回溯到根，且根结点的所有可行的子树都要已被搜索遍才结束。
-
-而若使用回溯法求任一个解时，只要搜索到问题的一个解就可以结束。
-</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://sherwinxie.xyz/五级工程师和职业发展/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1267,7 +1267,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
