@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_xie.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_xie.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="微信小程序," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="微信小程序入门笔记 Part 1什么是微信小程序（What？）微信小程序依赖于微信环境，微信中搜索即用，并且不用像安装（当然也就没有卸载一说），在IOS、Andorid以及WindowsPhone系统中都可以跨平台使用。 为什么玩微信小程序（Why？）作为后端开发者，对前端的知识有个基本的了解和掌握也是至关重要的，前后端本是一张纸，两面一体，全栈是后端进阶的必然。 另外是对新事物的好奇以及探索精神">
+<meta name="keywords" content="微信小程序">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一天入门微信小程序（总结）">
+<meta property="og:url" content="http://sherwinxie.xyz/微信小程序入门/index.html">
+<meta property="og:site_name" content="谢玮のBlog">
+<meta property="og:description" content="微信小程序入门笔记 Part 1什么是微信小程序（What？）微信小程序依赖于微信环境，微信中搜索即用，并且不用像安装（当然也就没有卸载一说），在IOS、Andorid以及WindowsPhone系统中都可以跨平台使用。 为什么玩微信小程序（Why？）作为后端开发者，对前端的知识有个基本的了解和掌握也是至关重要的，前后端本是一张纸，两面一体，全栈是后端进阶的必然。 另外是对新事物的好奇以及探索精神">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-05-01T20:33:31.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="一天入门微信小程序（总结）">
+<meta name="twitter:description" content="微信小程序入门笔记 Part 1什么是微信小程序（What？）微信小程序依赖于微信环境，微信中搜索即用，并且不用像安装（当然也就没有卸载一说），在IOS、Andorid以及WindowsPhone系统中都可以跨平台使用。 为什么玩微信小程序（Why？）作为后端开发者，对前端的知识有个基本的了解和掌握也是至关重要的，前后端本是一张纸，两面一体，全栈是后端进阶的必然。 另外是对新事物的好奇以及探索精神">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://sherwinxie.xyz/微信小程序入门/"/>
+
+
+
+
+
+  <title>一天入门微信小程序（总结） | 谢玮のBlog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">谢玮のBlog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Doing is better than saying.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://sherwinxie.xyz/微信小程序入门/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="SherwinX">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="谢玮のBlog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">一天入门微信小程序（总结）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-05T23:54:22+08:00">
+                2018-04-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="微信小程序入门笔记-Part-1"><a href="#微信小程序入门笔记-Part-1" class="headerlink" title="微信小程序入门笔记 Part 1"></a>微信小程序入门笔记 Part 1</h1><h2 id="什么是微信小程序（What？）"><a href="#什么是微信小程序（What？）" class="headerlink" title="什么是微信小程序（What？）"></a>什么是微信小程序（What？）</h2><p>微信小程序依赖于微信环境，微信中搜索即用，并且不用像安装（当然也就没有卸载一说），在IOS、Andorid以及WindowsPhone系统中都可以跨平台使用。</p>
+<h2 id="为什么玩微信小程序（Why？）"><a href="#为什么玩微信小程序（Why？）" class="headerlink" title="为什么玩微信小程序（Why？）"></a>为什么玩微信小程序（Why？）</h2><p>作为后端开发者，对前端的知识有个基本的了解和掌握也是至关重要的，前后端本是一张纸，两面一体，全栈是后端进阶的必然。</p>
+<p>另外是对新事物的好奇以及探索精神，作为个人也可以很方便的开发以及上线一个属于自己的小程序，既学既用能够快速的看到所学效果。</p>
+<ul>
+<li>最好熟悉Html+CSS+JS+Json等前端基础知识。</li>
+<li>最好通过跟着优质资源课做一个微信小程序项目掌握。</li>
+</ul>
+<h2 id="怎么开发自己的微信小程序（How？）"><a href="#怎么开发自己的微信小程序（How？）" class="headerlink" title="怎么开发自己的微信小程序（How？）"></a>怎么开发自己的微信小程序（How？）</h2><p>大致流程：下载IDE-&gt;熟悉开发环境-&gt;看官方文档-&gt;看资源视频做小项目-&gt;搜索解决问题-&gt;上传代码-&gt;提交审核-&gt;上线小程序。</p>
+<h3 id="微信开发的IDE和资料"><a href="#微信开发的IDE和资料" class="headerlink" title="微信开发的IDE和资料"></a>微信开发的IDE和资料</h3><ul>
+<li><a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html?t=2018428" target="_blank" rel="noopener">微信开发者工具</a></li>
+<li><a href="https://developers.weixin.qq.com/miniprogram/dev/" target="_blank" rel="noopener">微信开发者社区及API文档</a></li>
+<li><a href="http://www.xuetangx.com/courses/course-v1:TsinghuaX+2018032801X+2018_T1/about" target="_blank" rel="noopener">资源【THU学堂在线】</a></li>
+</ul>
+<h3 id="微信小程序的文件类型："><a href="#微信小程序的文件类型：" class="headerlink" title="微信小程序的文件类型："></a>微信小程序的文件类型：</h3><ul>
+<li>wxml（类似html 页面布局文件）</li>
+<li>wxss（类似css 样式文件）</li>
+<li>js  （页面交互）</li>
+<li>wxs （微信新开发的语言 类似js）</li>
+<li>json（Json配置）</li>
+</ul>
+<h3 id="JS-Pages-生命周期"><a href="#JS-Pages-生命周期" class="headerlink" title="JS Pages()生命周期"></a>JS Pages()生命周期</h3><p>onLoad -&gt; onShow -&gt; onReady -&gt; onHide -&gt; onUnload</p>
+<ul>
+<li><a href="https://developers.weixin.qq.com/miniprogram/dev/framework/app-service/page.html" target="_blank" rel="noopener">官方文档</a></li>
+</ul>
+<h2 id="WXSS-样式"><a href="#WXSS-样式" class="headerlink" title="WXSS 样式"></a>WXSS 样式</h2><ul>
+<li>传统布局 vs 弹性盒子布局（灵活在容器统一控制）</li>
+<li>px和rpx 相对像素 默认750rpx最大</li>
+</ul>
+<h2 id="条件渲染wx-if和hidden的选择"><a href="#条件渲染wx-if和hidden的选择" class="headerlink" title="条件渲染wx:if和hidden的选择"></a>条件渲染wx:if和hidden的选择</h2><p>当wx:if 判断为true时会动态加入元素（时间复杂大，空间复杂小）<br>而hidden属性来判断为true时只需要显示（开销小，相当于用空间换时间）</p>
+<h2 id="事件绑定bindtap-catchtap-区别"><a href="#事件绑定bindtap-catchtap-区别" class="headerlink" title="事件绑定bindtap catchtap 区别"></a>事件绑定bindtap catchtap 区别</h2><ul>
+<li>冒泡事件bindtap<br>子事件响应后响应父事件</li>
+<li>非冒泡事件catchtap<br>只捕捉子事件</li>
+</ul>
+<h2 id="CurrenTraget-和Target-区别"><a href="#CurrenTraget-和Target-区别" class="headerlink" title="CurrenTraget 和Target 区别"></a>CurrenTraget 和Target 区别</h2><p>target在事件流的目标阶段；</p>
+<p>currentTarget在事件流的捕获，目标及冒泡阶段；</p>
+<p>但事件流处于目标阶段，target与currentTarget指向一样；</p>
+<p>而当处于捕获和冒泡阶段的时候，target指向被单击的对象而currentTarget指向当前事件活动的对象。</p>
+<p>在微信小程序中也可总结为：target指向发生事件的组件，currentTarget指向绑定事件的组件。</p>
+<h2 id="wx-request-异步调用（类似JS-Ajax）"><a href="#wx-request-异步调用（类似JS-Ajax）" class="headerlink" title="wx.request 异步调用（类似JS Ajax）"></a>wx.request 异步调用（类似JS Ajax）</h2><ul>
+<li>url API接口地址</li>
+<li>nginx 代理转发</li>
+<li>success res 响应</li>
+</ul>
+<h2 id="web-server"><a href="#web-server" class="headerlink" title="web server"></a>web server</h2><p>微信小程序腾讯云服务器支持notejs和php</p>
+<ul>
+<li>express (note.js)</li>
+<li>middleware 中间件 是一个函数 req resp next</li>
+<li>Login登录API</li>
+</ul>
+<h1 id="常规状态码"><a href="#常规状态码" class="headerlink" title="常规状态码"></a>常规状态码</h1><ul>
+<li>200 成功</li>
+<li>3xx 请求成功，但需要改变请求资源的方式</li>
+<li>4xx 请求错误 eg.404 not found</li>
+<li>5xx 服务器内部错误 与客户端无关</li>
+</ul>
+<h1 id="RESTful-常规返回结果"><a href="#RESTful-常规返回结果" class="headerlink" title="RESTful 常规返回结果"></a>RESTful 常规返回结果</h1><ul>
+<li>GET:返回资源对象列表或单个资源对象</li>
+<li>POST:返回新生成的资源对象</li>
+<li>PUT:返回修改后的完整资源对象</li>
+<li>PATCH:返回被修改后的属性（局部更新）</li>
+<li>DELETE: 返回空 （状态码204 表示成功删除）</li>
+</ul>
+<h1 id="心得总结"><a href="#心得总结" class="headerlink" title="心得总结"></a>心得总结</h1><ol>
+<li>入门可以参考优质的视频项目，如THU学堂在线的调用豆瓣API的电影推荐小程序 和 基于C/S的todo小程序。</li>
+<li>入门基本使用后没有相关进阶的视频资源，应多查微信官方文档，和git clone开源项目运行和学习。</li>
+<li>提交审核，上线一个自己的小程序，命令规范为姓名+小程序，这样，家人朋友通过微信搜索你的名字时会将你的小程序一同搜出来。:）</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/微信小程序/" rel="tag"># 微信小程序</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/常见的算法思想/" rel="next" title="常见的算法思想">
+                <i class="fa fa-chevron-left"></i> 常见的算法思想
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="SherwinX" />
+            
+              <p class="site-author-name" itemprop="name">SherwinX</p>
+              <p class="site-description motion-element" itemprop="description">Doing is better than saying.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/sherwinxie" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:sherwinxie@foxmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#微信小程序入门笔记-Part-1"><span class="nav-number">1.</span> <span class="nav-text">微信小程序入门笔记 Part 1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是微信小程序（What？）"><span class="nav-number">1.1.</span> <span class="nav-text">什么是微信小程序（What？）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么玩微信小程序（Why？）"><span class="nav-number">1.2.</span> <span class="nav-text">为什么玩微信小程序（Why？）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#怎么开发自己的微信小程序（How？）"><span class="nav-number">1.3.</span> <span class="nav-text">怎么开发自己的微信小程序（How？）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#微信开发的IDE和资料"><span class="nav-number">1.3.1.</span> <span class="nav-text">微信开发的IDE和资料</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#微信小程序的文件类型："><span class="nav-number">1.3.2.</span> <span class="nav-text">微信小程序的文件类型：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JS-Pages-生命周期"><span class="nav-number">1.3.3.</span> <span class="nav-text">JS Pages()生命周期</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WXSS-样式"><span class="nav-number">1.4.</span> <span class="nav-text">WXSS 样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#条件渲染wx-if和hidden的选择"><span class="nav-number">1.5.</span> <span class="nav-text">条件渲染wx:if和hidden的选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件绑定bindtap-catchtap-区别"><span class="nav-number">1.6.</span> <span class="nav-text">事件绑定bindtap catchtap 区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CurrenTraget-和Target-区别"><span class="nav-number">1.7.</span> <span class="nav-text">CurrenTraget 和Target 区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#wx-request-异步调用（类似JS-Ajax）"><span class="nav-number">1.8.</span> <span class="nav-text">wx.request 异步调用（类似JS Ajax）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#web-server"><span class="nav-number">1.9.</span> <span class="nav-text">web server</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常规状态码"><span class="nav-number">2.</span> <span class="nav-text">常规状态码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#RESTful-常规返回结果"><span class="nav-number">3.</span> <span class="nav-text">RESTful 常规返回结果</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#心得总结"><span class="nav-number">4.</span> <span class="nav-text">心得总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SherwinX</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://github.com/sherwinxie">GitHub</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT</a></div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
