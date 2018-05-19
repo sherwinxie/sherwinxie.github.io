@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_xie.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_xie.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="加密算法," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="什么是信息安全?保证信息的保密性、可用性、完整性。 为什么了解信息安全？有助于我们理解 https 、加密算法、数字签名、数字证书CA、SSL之间的关系。 另外，助于我们理解区块链的技术，源于信息安全。 区块链在信息安全上的的优势至少有三个方面：  利用高冗余的分布式数据存储保障信息的数据完整性 利用密码学的相关原理进行数据验证，保证不可篡改 在权限管理方面，运用了多私钥规则进行访问权限控制  加">
+<meta name="keywords" content="加密算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="信息安全加密算法总结">
+<meta property="og:url" content="http://sherwinxie.xyz/常见的算法思想0/index.html">
+<meta property="og:site_name" content="谢玮のBlog">
+<meta property="og:description" content="什么是信息安全?保证信息的保密性、可用性、完整性。 为什么了解信息安全？有助于我们理解 https 、加密算法、数字签名、数字证书CA、SSL之间的关系。 另外，助于我们理解区块链的技术，源于信息安全。 区块链在信息安全上的的优势至少有三个方面：  利用高冗余的分布式数据存储保障信息的数据完整性 利用密码学的相关原理进行数据验证，保证不可篡改 在权限管理方面，运用了多私钥规则进行访问权限控制  加">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-05-19T15:33:59.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="信息安全加密算法总结">
+<meta name="twitter:description" content="什么是信息安全?保证信息的保密性、可用性、完整性。 为什么了解信息安全？有助于我们理解 https 、加密算法、数字签名、数字证书CA、SSL之间的关系。 另外，助于我们理解区块链的技术，源于信息安全。 区块链在信息安全上的的优势至少有三个方面：  利用高冗余的分布式数据存储保障信息的数据完整性 利用密码学的相关原理进行数据验证，保证不可篡改 在权限管理方面，运用了多私钥规则进行访问权限控制  加">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://sherwinxie.xyz/常见的算法思想0/"/>
+
+
+
+
+
+  <title>信息安全加密算法总结 | 谢玮のBlog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">谢玮のBlog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Doing is better than saying.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://sherwinxie.xyz/常见的算法思想0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="SherwinX">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="谢玮のBlog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">信息安全加密算法总结</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-30T00:00:00+08:00">
+                2018-04-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="什么是信息安全"><a href="#什么是信息安全" class="headerlink" title="什么是信息安全?"></a>什么是信息安全?</h2><p>保证信息的保密性、可用性、完整性。</p>
+<h2 id="为什么了解信息安全？"><a href="#为什么了解信息安全？" class="headerlink" title="为什么了解信息安全？"></a>为什么了解信息安全？</h2><p>有助于我们理解 https 、加密算法、数字签名、数字证书CA、SSL之间的关系。</p>
+<p>另外，助于我们理解区块链的技术，源于信息安全。</p>
+<p>区块链在信息安全上的的优势至少有三个方面：</p>
+<ol>
+<li>利用高冗余的分布式数据存储保障信息的数据完整性</li>
+<li>利用密码学的相关原理进行数据验证，保证不可篡改</li>
+<li>在权限管理方面，运用了多私钥规则进行访问权限控制</li>
+</ol>
+<h2 id="加密算法分类-密码学"><a href="#加密算法分类-密码学" class="headerlink" title="加密算法分类(密码学)"></a>加密算法分类(密码学)</h2><h3 id="单向加密"><a href="#单向加密" class="headerlink" title="单向加密"></a>单向加密</h3><p>单向加密是不可逆的，也就是只能加密，不能解密。通常用来传输类似用户名和密码，直接将加密后的数据提交到后台，因为后台不需要知道用户名和密码，可以直接将收到的加密后的数据存储到数据库。</p>
+<h3 id="双向加密"><a href="#双向加密" class="headerlink" title="双向加密"></a>双向加密</h3><p>双向加密算法通常分为对称性加密算法和非对称性加密算法。</p>
+<h4 id="对称性加密（单钥）"><a href="#对称性加密（单钥）" class="headerlink" title="对称性加密（单钥）"></a>对称性加密（单钥）</h4><p>对于对称性加密算法，信息接收双方都需事先知道密匙和加解密算法且其密匙是相同的，之后便是对数据进行加解密了。</p>
+<h4 id="非对称性加密（双钥）"><a href="#非对称性加密（双钥）" class="headerlink" title="非对称性加密（双钥）"></a>非对称性加密（双钥）</h4><p>非对称加密算法需要两个密钥：公开密钥（publickey）和私有密钥（privatekey）。公开密钥与私有密钥是一对，如果用公开密钥对数据进行加密，只有用对应的私有密钥才能解密；如果用私有密钥对数据进行加密，那么只有用对应的公开密钥才能解密。因为加密和解密使用的是两个不同的密钥，所以这种算法叫作非对称加密算法。</p>
+<p>非对称加密算法实现机密信息交换的基本过程是：甲方生成一对密钥并将其中的一把作为公用密钥向其它方公开；得到该公用密钥的乙方使用该密钥对机密信息进行加密后再发送给甲方；甲方再用自己保存的另一把专用密钥对加密后的信息进行解密。</p>
+<h2 id="单向加密应用"><a href="#单向加密应用" class="headerlink" title="单向加密应用"></a>单向加密应用</h2><h3 id="消息摘要（Message-Digest）"><a href="#消息摘要（Message-Digest）" class="headerlink" title="消息摘要（Message Digest）"></a>消息摘要（Message Digest）</h3><p>不需要密钥，严格意义来讲不算加密。</p>
+<p>通过特定的Hash函数，生成固定长度的输出，即输入长度任意，输出长度固定。这个输出就是Hash值，也成为这个消息的消息摘要。</p>
+<p>消息摘要保证了消息的完整性。如果发送者发送的消息，在传输过程中被恶意篡改，那么接收者收到消息后，用同样的摘要算法计算其摘要，如果新摘要与发送者原始摘要不同，那么接收者就知道消息被篡改了。这里有一个前提条件就是：接收者一定要事先知道消息的原始摘要。消息摘要不需要秘钥，不存在秘钥的保管和分发问题。</p>
+<p>基本的单向加密算法:</p>
+<ul>
+<li>消息摘要算法MD系列 如MD5（128位）</li>
+<li>SHA安全散列算法 如SHA1（160位)、SHA-256(256位)等</li>
+<li>HMAC消息认证码算法，也称为MAC含有密钥的散列函数算法，融合MD、SHA，引入密钥。</li>
+<li>BASE64编码算法不是加密算法，定义:Base64内容传送编码被设计用来把任意序列的8位字节描述为一种不易被人直接识别的形式。同时，BASE64和加密没什么关系。从转换成二进制后的角度上看，它依然是明码。加密需要保证，没有密钥的人无法解密信息，无法从密文中获得任何明文信息。</li>
+</ul>
+<p>JDK的Hash应用代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> HashEncryption;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.security.MessageDigest;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.crypto.KeyGenerator;</span><br><span class="line"><span class="keyword">import</span> javax.crypto.Mac;</span><br><span class="line"><span class="keyword">import</span> javax.crypto.SecretKey;</span><br><span class="line"><span class="keyword">import</span> javax.crypto.spec.SecretKeySpec;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> sun.misc.BASE64Decoder;</span><br><span class="line"><span class="keyword">import</span> sun.misc.BASE64Encoder;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">AllHashEncryption</span> </span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String KEY_SHA = <span class="string">"SHA"</span>;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String KEY_MD5 = <span class="string">"MD5"</span>;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * MAC算法可选以下多种算法</span></span><br><span class="line"><span class="comment">	 *</span></span><br><span class="line"><span class="comment">	 * &lt;pre&gt;</span></span><br><span class="line"><span class="comment">	 * HmacMD5</span></span><br><span class="line"><span class="comment">	 * HmacSHA1</span></span><br><span class="line"><span class="comment">	 * HmacSHA256</span></span><br><span class="line"><span class="comment">	 * HmacSHA384</span></span><br><span class="line"><span class="comment">	 * HmacSHA512</span></span><br><span class="line"><span class="comment">	 * &lt;/pre&gt;</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String KEY_MAC = <span class="string">"HmacMD5"</span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * BASE64解密</span></span><br><span class="line"><span class="comment">	 *</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> key</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@throws</span> Exception</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">byte</span>[] decryptBASE64(String key) <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">		<span class="keyword">return</span> (<span class="keyword">new</span> BASE64Decoder()).decodeBuffer(key);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * BASE64加密</span></span><br><span class="line"><span class="comment">	 *</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> key</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@throws</span> Exception</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">encryptBASE64</span><span class="params">(<span class="keyword">byte</span>[] key)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> (<span class="keyword">new</span> BASE64Encoder()).encodeBuffer(key);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * MD5加密</span></span><br><span class="line"><span class="comment">	 *</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> data</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@throws</span> Exception</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">byte</span>[] encryptMD5(<span class="keyword">byte</span>[] data) <span class="keyword">throws</span> Exception &#123;</span><br><span class="line"></span><br><span class="line">		MessageDigest md5 = MessageDigest.getInstance(KEY_MD5);</span><br><span class="line">		md5.update(data);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">return</span> md5.digest();</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * SHA加密</span></span><br><span class="line"><span class="comment">	 *</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> data</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@throws</span> Exception</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">byte</span>[] encryptSHA(<span class="keyword">byte</span>[] data) <span class="keyword">throws</span> Exception &#123;</span><br><span class="line"></span><br><span class="line">		MessageDigest sha = MessageDigest.getInstance(KEY_SHA);</span><br><span class="line">		sha.update(data);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">return</span> sha.digest();</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 初始化HMAC密钥</span></span><br><span class="line"><span class="comment">	 *</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@throws</span> Exception</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">initMacKey</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">		KeyGenerator keyGenerator = KeyGenerator.getInstance(KEY_MAC);</span><br><span class="line">		SecretKey secretKey = keyGenerator.generateKey();</span><br><span class="line">		<span class="keyword">return</span> encryptBASE64(secretKey.getEncoded());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * HMAC加密</span></span><br><span class="line"><span class="comment">	 *</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> data</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> key</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@throws</span> Exception</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">byte</span>[] encryptHMAC(<span class="keyword">byte</span>[] data, String key) <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">		SecretKey secretKey = <span class="keyword">new</span> SecretKeySpec(decryptBASE64(key), KEY_MAC);</span><br><span class="line">		Mac mac = Mac.getInstance(secretKey.getAlgorithm());</span><br><span class="line">		mac.init(secretKey);</span><br><span class="line">		<span class="keyword">return</span> mac.doFinal(data);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>测试类:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> HashEncryption;</span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.junit.Assert.*;</span><br><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"><span class="keyword">import</span> java.math.BigInteger;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HashTest</span> </span>&#123;</span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">		String inputStr = <span class="string">"这是明文信息"</span>;</span><br><span class="line">		System.err.println(<span class="string">"原文:\n"</span> + inputStr);</span><br><span class="line">		<span class="keyword">byte</span>[] inputData = inputStr.getBytes();</span><br><span class="line">		String code = AllHashEncryption.encryptBASE64(inputData);</span><br><span class="line">		System.err.println(<span class="string">"BASE64加密后:\n"</span> + code);</span><br><span class="line">		<span class="keyword">byte</span>[] output = AllHashEncryption.decryptBASE64(code);</span><br><span class="line">		String outputStr = <span class="keyword">new</span> String(output);</span><br><span class="line">		System.err.println(<span class="string">"BASE64解密后:\n"</span> + outputStr);</span><br><span class="line">		<span class="comment">// 验证BASE64加密解密一致性</span></span><br><span class="line">		assertEquals(inputStr, outputStr);</span><br><span class="line">		<span class="comment">// 验证MD5对于同一内容加密是否一致</span></span><br><span class="line">		assertArrayEquals(AllHashEncryption.encryptMD5(inputData), AllHashEncryption</span><br><span class="line">				.encryptMD5(inputData));</span><br><span class="line">		<span class="comment">// 验证SHA对于同一内容加密是否一致</span></span><br><span class="line">		assertArrayEquals(AllHashEncryption.encryptSHA(inputData), AllHashEncryption</span><br><span class="line">				.encryptSHA(inputData));</span><br><span class="line">		String key = AllHashEncryption.initMacKey();</span><br><span class="line">		System.err.println(<span class="string">"Mac密钥:\n"</span> + key);</span><br><span class="line">		<span class="comment">// 验证HMAC对于同一内容，同一密钥加密是否一致</span></span><br><span class="line">		assertArrayEquals(AllHashEncryption.encryptHMAC(inputData, key), AllHashEncryption.encryptHMAC(</span><br><span class="line">				inputData, key));</span><br><span class="line">		BigInteger md5 = <span class="keyword">new</span> BigInteger(AllHashEncryption.encryptMD5(inputData));</span><br><span class="line">		System.err.println(<span class="string">"MD5:\n"</span> + md5.toString(<span class="number">16</span>));</span><br><span class="line">		BigInteger sha = <span class="keyword">new</span> BigInteger(AllHashEncryption.encryptSHA(inputData));</span><br><span class="line">		System.err.println(<span class="string">"SHA:\n"</span> + sha.toString(<span class="number">32</span>));</span><br><span class="line">		BigInteger mac = <span class="keyword">new</span> BigInteger(AllHashEncryption.encryptHMAC(inputData, inputStr));</span><br><span class="line">		System.err.println(<span class="string">"HMAC:\n"</span> + mac.toString(<span class="number">16</span>));</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="双向加密应用"><a href="#双向加密应用" class="headerlink" title="双向加密应用"></a>双向加密应用</h2><h3 id="对称加密算法-单钥"><a href="#对称加密算法-单钥" class="headerlink" title="对称加密算法(单钥)"></a>对称加密算法(单钥)</h3><p>常见单钥加密算法:</p>
+<ul>
+<li>DES 数据加密标准，速度较快，56位密钥，以现代计算能力，24小时内可被破解。</li>
+<li>3DES 是基于DES，对一块数据用三个不同的密钥进行三次加密，强度更高；</li>
+<li>AES (Advanced Encryption Standard) 进阶的加密标准，是新一代的加密算法标准，速度快，安全级别高，目前 AES 标准的一个实现是<br>Rijndael 算法。</li>
+</ul>
+<p>DES代码:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.security.SecureRandom;</span><br><span class="line"><span class="keyword">import</span> javax.crypto.spec.DESKeySpec;</span><br><span class="line"><span class="keyword">import</span> javax.crypto.SecretKeyFactory;</span><br><span class="line"><span class="keyword">import</span> javax.crypto.SecretKey;</span><br><span class="line"><span class="keyword">import</span> javax.crypto.Cipher;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> DES加密介绍</span></span><br><span class="line"><span class="comment">      DES是一种对称加密算法，所谓对称加密算法即：加密和解密使用相同密钥的算法。DES加密算法出自IBM的研究，</span></span><br><span class="line"><span class="comment"> 后来被美国政府正式采用，之后开始广泛流传，但是近些年使用越来越少，因为DES使用56位密钥，以现代计算能力，</span></span><br><span class="line"><span class="comment"> 24小时内即可被破解。虽然如此，在某些简单应用中，我们还是可以使用DES加密算法，本文简单讲解DES的JAVA实现</span></span><br><span class="line"><span class="comment"> 。</span></span><br><span class="line"><span class="comment"> 注意：DES加密和解密过程中，密钥长度都必须是8的倍数</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DES</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">DES</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//测试</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">         <span class="comment">//待加密内容</span></span><br><span class="line">         String str = <span class="string">"sherwinxie"</span>;</span><br><span class="line">         <span class="comment">//密码，长度要是8的倍数</span></span><br><span class="line">         String password = <span class="string">"01234567"</span>;</span><br><span class="line"></span><br><span class="line">         <span class="keyword">byte</span>[] result = DES.encrypt(str.getBytes(),password);</span><br><span class="line">         System.out.println(<span class="string">"加密后："</span>+<span class="keyword">new</span> String(result));</span><br><span class="line">         <span class="comment">//直接将如上内容解密</span></span><br><span class="line">         <span class="keyword">try</span> &#123;</span><br><span class="line">                 <span class="keyword">byte</span>[] decryResult = DES.decrypt(result, password);</span><br><span class="line">                 System.out.println(<span class="string">"解密后："</span>+<span class="keyword">new</span> String(decryResult));</span><br><span class="line">         &#125; <span class="keyword">catch</span> (Exception e1) &#123;</span><br><span class="line">                 e1.printStackTrace();</span><br><span class="line">         &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 加密</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> datasource byte[]</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> password String</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> byte[]</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span>  <span class="keyword">byte</span>[] encrypt(<span class="keyword">byte</span>[] datasource, String password) &#123;            </span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">        SecureRandom random = <span class="keyword">new</span> SecureRandom();</span><br><span class="line">        DESKeySpec desKey = <span class="keyword">new</span> DESKeySpec(password.getBytes());</span><br><span class="line">        <span class="comment">//创建一个密匙工厂，然后用它把DESKeySpec转换成</span></span><br><span class="line">        SecretKeyFactory keyFactory = SecretKeyFactory.getInstance(<span class="string">"DES"</span>);</span><br><span class="line">        SecretKey securekey = keyFactory.generateSecret(desKey);</span><br><span class="line">        <span class="comment">//Cipher对象实际完成加密操作</span></span><br><span class="line">        Cipher cipher = Cipher.getInstance(<span class="string">"DES"</span>);</span><br><span class="line">        <span class="comment">//用密匙初始化Cipher对象,ENCRYPT_MODE用于将 Cipher 初始化为加密模式的常量</span></span><br><span class="line">        cipher.init(Cipher.ENCRYPT_MODE, securekey, random);</span><br><span class="line">        <span class="comment">//现在，获取数据并加密</span></span><br><span class="line">        <span class="comment">//正式执行加密操作</span></span><br><span class="line">        <span class="keyword">return</span> cipher.doFinal(datasource); <span class="comment">//按单部分操作加密或解密数据，或者结束一个多部分操作</span></span><br><span class="line">        &#125;<span class="keyword">catch</span>(Throwable e)&#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 解密</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> src byte[]</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> password String</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> byte[]</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> Exception</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">byte</span>[] decrypt(<span class="keyword">byte</span>[] src, String password) <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">            <span class="comment">// DES算法要求有一个可信任的随机数源</span></span><br><span class="line">            SecureRandom random = <span class="keyword">new</span> SecureRandom();</span><br><span class="line">            <span class="comment">// 创建一个DESKeySpec对象</span></span><br><span class="line">            DESKeySpec desKey = <span class="keyword">new</span> DESKeySpec(password.getBytes());</span><br><span class="line">            <span class="comment">// 创建一个密匙工厂</span></span><br><span class="line">            SecretKeyFactory keyFactory = SecretKeyFactory.getInstance(<span class="string">"DES"</span>);<span class="comment">//返回实现指定转换的 Cipher 对象</span></span><br><span class="line">            <span class="comment">// 将DESKeySpec对象转换成SecretKey对象</span></span><br><span class="line">            SecretKey securekey = keyFactory.generateSecret(desKey);</span><br><span class="line">            <span class="comment">// Cipher对象实际完成解密操作</span></span><br><span class="line">            Cipher cipher = Cipher.getInstance(<span class="string">"DES"</span>);</span><br><span class="line">            <span class="comment">// 用密匙初始化Cipher对象</span></span><br><span class="line">            cipher.init(Cipher.DECRYPT_MODE, securekey, random);</span><br><span class="line">            <span class="comment">// 真正开始解密操作</span></span><br><span class="line">            <span class="keyword">return</span> cipher.doFinal(src);</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="非对称加密算法-公钥私钥"><a href="#非对称加密算法-公钥私钥" class="headerlink" title="非对称加密算法(公钥私钥)"></a>非对称加密算法(公钥私钥)</h3><ul>
+<li>RSA(算法的名字以发明者的名字命名：Ron Rivest, AdiShamir 和Leonard Adleman)</li>
+<li>ECC(Elliptic Curves Cryptography，椭圆曲线密码编码学)</li>
+<li>DSA(Digital Signature Algorithm，数字签名)</li>
+<li>DES(Data Encryption Standard，数据加密算法)</li>
+</ul>
+<h4 id="RSA原理"><a href="#RSA原理" class="headerlink" title="RSA原理:"></a>RSA原理:</h4><p>RSA算法大体可以分为三个部分：生成密钥对（公钥私钥）、加密、解密。<br>其获取步骤为：</p>
+<ol>
+<li><p>取两个大素数p和q (保密)；</p>
+</li>
+<li><p>计算 n=p<em>q (公开), 欧拉函数φ(n)=(p-1)</em>(q-1) 即与n互素的个数(保密)；</p>
+</li>
+<li><p>随机选取整数e，满足最大公约数gcd(e, φ(n))=1 （e与φ(n)互素）(公开)；</p>
+</li>
+<li><p>计算私钥元素 d 满足 d * e ≡ 1 (mod φ(n)) (保密)；</p>
+</li>
+<li><p>｛e，n｝为公钥，｛d，n｝为私钥，也可以用｛e，d｝表示密钥对</p>
+</li>
+<li>公钥加密时c = x^e mod n ；私钥解密时x = c^d mod n</li>
+<li>私钥签名时c = x^d mod n ；公钥验证时x = c^e mod n</li>
+</ol>
+<h4 id="RSA简单案例："><a href="#RSA简单案例：" class="headerlink" title="RSA简单案例："></a>RSA简单案例：</h4><p>在RSA公钥体制中,单向函数的构造基于大整数n因数分解的困难 ,因而n的两个因数p与q都应取大素数。为便于理解,我们选取两个较小的素数来说明该体制的实施。</p>
+<p>案例：</p>
+<ol>
+<li><p>小谢要给小红发信息，那么小红首先需要生成两个素数p和q。</p>
+</li>
+<li><p>为了计算简单，我们假设p = 17和q = 3，实际应用中p和q往往长达数百上千位。 计算n=17∗3=51 ，而欧拉函数φ(n)=(17−1)(3−1)=32即与n互素的个数</p>
+</li>
+<li><p>选取和欧拉函数φ(n)32互质的3作为公钥中的e。那么公钥就是(3, 51)。 </p>
+</li>
+<li><p>然后计算3在模32下的数论倒数d。使用扩展欧几里德算法求得d = 11。 </p>
+</li>
+<li><p>验证一下，d ∗ e=11 ∗ 3=33，而33 mod 32=1，所以11是3在模32下的数论倒数即逆元。私钥为(11, 51)。 </p>
+</li>
+<li><p>小红通过公共信道把公钥(3, 51)发给小谢。<br>假设小谢要发给小红的原文信息是2，对它进行加密，也就是计算23 mod 51=8。得到密文C = 8。 </p>
+</li>
+<li><p>小谢将密文8发送给小红。小红收到后，进行解密运算811 mod 51=2。得到原文2。</p>
+</li>
+</ol>
+<p>RSA代码:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.security.*;</span><br><span class="line"><span class="keyword">import</span> java.security.interfaces.*;</span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">import</span> java.math.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RSADemo</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     *  生成密钥并保存的函数</span></span><br><span class="line"><span class="comment">     *  将公钥和私钥以文件流的形式保存在当前文件目录下生成密钥并保存函数</span></span><br><span class="line"><span class="comment">     *  将公钥和私钥以文件流的形式保存在当前文件目录下</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">generateKey</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            KeyPairGenerator kpg = KeyPairGenerator.getInstance(<span class="string">"RSA"</span>);</span><br><span class="line">            kpg.initialize(<span class="number">1024</span>);<span class="comment">//RSA的加密位设为1024位</span></span><br><span class="line">            KeyPair kp = kpg.genKeyPair();</span><br><span class="line">            PublicKey pbkey = kp.getPublic();</span><br><span class="line">            PrivateKey prkey = kp.getPrivate();</span><br><span class="line">            <span class="comment">// 保存公钥  </span></span><br><span class="line">            FileOutputStream f1 = <span class="keyword">new</span> FileOutputStream(<span class="string">"pubkey.txt"</span>);</span><br><span class="line">            ObjectOutputStream b1 = <span class="keyword">new</span> ObjectOutputStream(f1);</span><br><span class="line">            b1.writeObject(pbkey);</span><br><span class="line">            <span class="comment">// 保存私钥  </span></span><br><span class="line">            FileOutputStream f2 = <span class="keyword">new</span> FileOutputStream(<span class="string">"privatekey.txt"</span>);</span><br><span class="line">            ObjectOutputStream b2 = <span class="keyword">new</span> ObjectOutputStream(f2);</span><br><span class="line">            b2.writeObject(prkey);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * encrypt()加密函数，以BigInteger类型储存便于提取出公钥中的（e，N）</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> Exception</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">encrypt</span><span class="params">(String msg)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        String content = msg;</span><br><span class="line">        <span class="comment">// 获取公钥及参数e,n</span></span><br><span class="line">        FileInputStream f = <span class="keyword">new</span> FileInputStream(<span class="string">"pubkey.txt"</span>);</span><br><span class="line">        ObjectInputStream b = <span class="keyword">new</span> ObjectInputStream(f);</span><br><span class="line">        RSAPublicKey pbk = (RSAPublicKey) b.readObject();</span><br><span class="line">        BigInteger e = pbk.getPublicExponent();<span class="comment">//获得公钥的指数</span></span><br><span class="line">        BigInteger n = pbk.getModulus();</span><br><span class="line">        System.out.println(<span class="string">"公钥 e= "</span> + e+<span class="string">"\n"</span>+<span class="string">"n= "</span> + n);</span><br><span class="line">        <span class="comment">// 获取明文m</span></span><br><span class="line">        <span class="keyword">byte</span> ptext[] = content.getBytes(<span class="string">"UTF-8"</span>);</span><br><span class="line">        BigInteger m = <span class="keyword">new</span> BigInteger(ptext);</span><br><span class="line">        <span class="comment">// 计算密文c</span></span><br><span class="line">        BigInteger c = m.modPow(e, n);</span><br><span class="line">        System.out.println(<span class="string">"加密后为： "</span> + c);</span><br><span class="line">        <span class="comment">// 保存密文</span></span><br><span class="line">        String cs = c.toString();</span><br><span class="line">        BufferedWriter out =</span><br><span class="line">                <span class="keyword">new</span> BufferedWriter(</span><br><span class="line">                        <span class="keyword">new</span> OutputStreamWriter(<span class="keyword">new</span> FileOutputStream(<span class="string">"encrypt.txt"</span>)));</span><br><span class="line">        out.write(cs, <span class="number">0</span>, cs.length());</span><br><span class="line">        out.close();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * decrypt()解密函数，以BigInteger类型储存便于提取出公钥中的（d，N）</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> Exception</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">decrypt</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="comment">// 读取密文  </span></span><br><span class="line">        BufferedReader in =</span><br><span class="line">                <span class="keyword">new</span> BufferedReader(</span><br><span class="line">                        <span class="keyword">new</span> InputStreamReader(<span class="keyword">new</span> FileInputStream(<span class="string">"encrypt.txt"</span>)));</span><br><span class="line"></span><br><span class="line">        String ctext = in.readLine();</span><br><span class="line">        BigInteger c = <span class="keyword">new</span> BigInteger(ctext);</span><br><span class="line">        <span class="comment">// 读取私钥  </span></span><br><span class="line">        FileInputStream f = <span class="keyword">new</span> FileInputStream(<span class="string">"privatekey.txt"</span>);</span><br><span class="line">        ObjectInputStream b = <span class="keyword">new</span> ObjectInputStream(f);</span><br><span class="line">        RSAPrivateKey prk = (RSAPrivateKey) b.readObject();</span><br><span class="line">        BigInteger d = prk.getPrivateExponent();</span><br><span class="line">        <span class="comment">// 获取私钥参数及解密  </span></span><br><span class="line">        BigInteger n = prk.getModulus();</span><br><span class="line">        System.out.println(<span class="string">"私钥"</span>+<span class="string">"d= "</span>+ d+<span class="string">"\n"</span>+<span class="string">" n= "</span> + n);</span><br><span class="line">        BigInteger m = c.modPow(d, n);</span><br><span class="line">        <span class="comment">// 显示解密结果  </span></span><br><span class="line">        System.out.println(<span class="string">"解密后大整数为： "</span> + m);</span><br><span class="line">        <span class="keyword">byte</span>[] mContent = m.toByteArray();</span><br><span class="line">        String s = <span class="keyword">new</span> String(mContent,<span class="string">"UTF-8"</span>);</span><br><span class="line">        System.out.println(<span class="string">"\n解密后的明文:"</span> + s);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            String contentTest = <span class="string">"RSA算法加密的原文加中文标点符号，。~￥ --SherwinXie"</span>;</span><br><span class="line">            generateKey();</span><br><span class="line">            encrypt(contentTest);</span><br><span class="line">            decrypt();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            System.out.println(e.toString());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="数字签名"><a href="#数字签名" class="headerlink" title="数字签名"></a>数字签名</h2><p>数字签名：把数字证书的hash值（指纹）用私钥加密就得到数字签名，其作用是保证信息的完整性；</p>
+<h2 id="数字证书"><a href="#数字证书" class="headerlink" title="数字证书"></a>数字证书</h2><p>数字证书：是通信确定身份的一种电子证书，该电子证书一般是有权威的CA机构颁发，如果出现问题，颁发机构会负全部责任。数字证书确认通信服务器的身份同时还公布公钥；</p>
+<h2 id="SSL"><a href="#SSL" class="headerlink" title="SSL"></a>SSL</h2><p>安全套接字层，这是一种在可靠协议之上（如：TCP）的协议层，保证身份认证和加密传输；SSL协议位于TCP/IP协议与各种应用层协议之间，为数据通讯提供安全支持。</p>
+<p>SSL协议的优势在于它与应用层协议是独立无关的。高层的应用层协议 (例如：Http、FTP、Telnet等等 ) 能透明的建立于SSL协议之上。SSL协议在应用层协议通信之前就已完成数据加密、通信密钥的协商和服务器的认证等工作。在此之后应用层协议所传送的数据都会被加密，从而保证通信的私密性。</p>
+<h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h2><ul>
+<li><p>公钥和私钥是成对的，它们互相解密。<br>公钥加密，私钥解密。<br>私钥数字签名，公钥验证。</p>
+</li>
+<li><p>数字签名是数字证书的hash值加密的结果；</p>
+</li>
+<li>SSL 用到数字证书报证加密机制（如：RAS）公钥的发布、通讯双方的身份验证、信息完整性；</li>
+<li>https、http是SSL携带的数据。</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/加密算法/" rel="tag"># 加密算法</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/单例模式总结/" rel="next" title="单例模式总结">
+                <i class="fa fa-chevron-left"></i> 单例模式总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/代理模式总结/" rel="prev" title="代理模式总结">
+                代理模式总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="SherwinX" />
+            
+              <p class="site-author-name" itemprop="name">SherwinX</p>
+              <p class="site-description motion-element" itemprop="description">Doing is better than saying.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/sherwinxie" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:sherwinxie@foxmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是信息安全"><span class="nav-number">1.</span> <span class="nav-text">什么是信息安全?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么了解信息安全？"><span class="nav-number">2.</span> <span class="nav-text">为什么了解信息安全？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#加密算法分类-密码学"><span class="nav-number">3.</span> <span class="nav-text">加密算法分类(密码学)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#单向加密"><span class="nav-number">3.1.</span> <span class="nav-text">单向加密</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#双向加密"><span class="nav-number">3.2.</span> <span class="nav-text">双向加密</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#对称性加密（单钥）"><span class="nav-number">3.2.1.</span> <span class="nav-text">对称性加密（单钥）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#非对称性加密（双钥）"><span class="nav-number">3.2.2.</span> <span class="nav-text">非对称性加密（双钥）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单向加密应用"><span class="nav-number">4.</span> <span class="nav-text">单向加密应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#消息摘要（Message-Digest）"><span class="nav-number">4.1.</span> <span class="nav-text">消息摘要（Message Digest）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#双向加密应用"><span class="nav-number">5.</span> <span class="nav-text">双向加密应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#对称加密算法-单钥"><span class="nav-number">5.1.</span> <span class="nav-text">对称加密算法(单钥)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非对称加密算法-公钥私钥"><span class="nav-number">5.2.</span> <span class="nav-text">非对称加密算法(公钥私钥)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#RSA原理"><span class="nav-number">5.2.1.</span> <span class="nav-text">RSA原理:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RSA简单案例："><span class="nav-number">5.2.2.</span> <span class="nav-text">RSA简单案例：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数字签名"><span class="nav-number">6.</span> <span class="nav-text">数字签名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数字证书"><span class="nav-number">7.</span> <span class="nav-text">数字证书</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSL"><span class="nav-number">8.</span> <span class="nav-text">SSL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结："><span class="nav-number">9.</span> <span class="nav-text">总结：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SherwinX</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://github.com/sherwinxie">GitHub</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT</a></div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
