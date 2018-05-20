@@ -242,6 +242,193 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://sherwinxie.xyz/责任链模式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="SherwinX">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="谢玮のBlog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/责任链模式/" itemprop="url">责任链模式总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-02T00:00:00+08:00">
+                2018-05-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/设计模式/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="什么是责任链模式？"><a href="#什么是责任链模式？" class="headerlink" title="什么是责任链模式？"></a>什么是责任链模式？</h2><h4 id="责任链模式-Chain-of-Responsibility-Pattern）的定义："><a href="#责任链模式-Chain-of-Responsibility-Pattern）的定义：" class="headerlink" title="责任链模式(Chain of Responsibility Pattern）的定义："></a>责任链模式(Chain of Responsibility Pattern）的定义：</h4><p>为请求创建了一个接收者对象的职责链，使多个接受者对象都有机会处理请求，从而对请求的发送者和接收者进行解耦。将这些接受者对象连成一条链，并沿着这条链传递该请求，通常每个接收者都包含对另一个接收者的引用，如果一个对象不能处理该请求，那么它会把相同的请求传给下一个接收者，直到有一个对象处理它为止。</p>
+<p>责任链属于行为型模式。</p>
+<blockquote>
+<p>大话设计模式中，程杰老师给出的定义是责任链模式：避免请求发送者与接收者耦合在一起，让多个对象都有可能接收请求，将这些对象连接成一条链，并且沿着这条链传递请求，直到有对象处理它为止。</p>
+</blockquote>
+<blockquote>
+<p>在责任链模式中发出请求的客户端并不知道这当中的哪个接受对象最终处理这个请求，这样系统的更改可以在不影响客户端的情况下动态的重新组织和分配责任。</p>
+</blockquote>
+<h4 id="主要解决"><a href="#主要解决" class="headerlink" title="主要解决:"></a>主要解决:</h4><p>职责链上的处理者负责处理请求，客户只需要将请求发送到职责链上即可，无须关心请求的处理细节和请求的传递，所以职责链将请求的发送者和请求的处理者解耦了。</p>
+<h4 id="代表应用："><a href="#代表应用：" class="headerlink" title="代表应用："></a>代表应用：</h4><ul>
+<li>JS 中的事件冒泡</li>
+<li>JAVA WEB 中 Apache Tomcat 对 Encoding 的处理</li>
+<li>JSP Servlet 的 Filter过滤器, ..</li>
+<li>Struts2 的拦截器</li>
+</ul>
+<h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ol>
+<li>降低耦合度。它将请求的发送者和接收者解耦，即分离了请求与处理，无须知道是哪个对象处理其请求。 </li>
+<li>简化了对象的相互连接。使得对象不需要知道链的结构。即仅保持一个指向后者的引用，而不需保持所有候选接受者的引用结构。</li>
+<li>增强给对象指派职责的灵活性。通过改变链内的成员或者调动它们的次序，允许动态地新增或者删除责任。</li>
+<li>增加新的请求处理类很方便，只需要在客户端重新建链即可，无需破坏原代码</li>
+</ol>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><ol>
+<li>不能保证请求一定被接收处理，如果请求没有明确的接收者，那么就不能保证它一定会被处理，该请求可能一直到链的末端都得不到处理；一个请求也可能因职责链没有被正确配置而得不到处理</li>
+<li>较长的职责链，请求的处理可能涉及到多个处理对象，系统性能将受到一定影响，而且在进行代码调试时不太方便，如果建链不当，可能会造成循环调用，将导致系统陷入死循环。 </li>
+<li>可能不容易观察运行时的特征，有碍于Debug。</li>
+</ol>
+<h2 id="责任链代码应用"><a href="#责任链代码应用" class="headerlink" title="责任链代码应用"></a>责任链代码应用</h2><p>如A的职责可以处理0-9天的请假，B可以处理10-19天的，C可以处理20-29天的权利，如请求超过30天，则不被处理。现实意义比喻是要么请假30天内，要么get off。。</p>
+<h4 id="结构解析"><a href="#结构解析" class="headerlink" title="结构解析"></a>结构解析</h4><blockquote>
+<p>Handler定义一个处理请示的抽象类或接口；</p>
+<p>ConcreteHandler代表具体处理者类对象，处理它所负责的请求，可访问它的后继者，如果”职责”可以处理该请求，就处理，否则就将该请求转发给它的后继者。</p>
+</blockquote>
+<h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现:"></a>代码实现:</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Handler</span> </span>&#123;</span><br><span class="line">    <span class="keyword">protected</span> Handler successor;<span class="comment">//后继者</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Handler <span class="title">getSuccessor</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> successor;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setSuccessor</span><span class="params">(Handler successor)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.successor = successor;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//处理请求</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleRequest</span><span class="params">(<span class="keyword">int</span> request)</span> </span>&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 当请求数在0~9天之间时A有权处理，否则转到下一位</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConcreteHandlerA</span> <span class="keyword">extends</span> <span class="title">Handler</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleRequest</span><span class="params">(<span class="keyword">int</span> request)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (request &gt;= <span class="number">0</span> &amp;&amp; request &lt; <span class="number">10</span>) &#123;</span><br><span class="line">            System.out.println(<span class="keyword">this</span>.getClass() + <span class="string">"  处理请求  "</span> + request);</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span> (successor != <span class="keyword">null</span>) &#123;</span><br><span class="line">            successor.handleRequest(request);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 当请求数在10~19之间时B有权处理，否则转到下一位</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConcreteHandlerB</span> <span class="keyword">extends</span> <span class="title">Handler</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleRequest</span><span class="params">(<span class="keyword">int</span> request)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (request &gt;= <span class="number">10</span> &amp;&amp; request &lt; <span class="number">20</span>) &#123;</span><br><span class="line">            System.out.println(<span class="keyword">this</span>.getClass() + <span class="string">"  处理请求  "</span> + request);</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span> (successor != <span class="keyword">null</span>) &#123;</span><br><span class="line">            successor.handleRequest(request);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 当请求数在20~29之间时C有权处理，否则转到下一位</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConcreteHandlerC</span> <span class="keyword">extends</span> <span class="title">Handler</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleRequest</span><span class="params">(<span class="keyword">int</span> request)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (request &gt;= <span class="number">20</span> &amp;&amp; request &lt; <span class="number">30</span>) &#123;</span><br><span class="line">            System.out.println(<span class="keyword">this</span>.getClass() + <span class="string">"  处理请求  "</span> + request);</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span> (successor != <span class="keyword">null</span>) &#123;</span><br><span class="line">            successor.handleRequest(request);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ChainPatternDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Handler handlerA = <span class="keyword">new</span> ConcreteHandlerA();</span><br><span class="line">        Handler handlerB = <span class="keyword">new</span> ConcreteHandlerB();</span><br><span class="line">        Handler handlerC = <span class="keyword">new</span> ConcreteHandlerC();</span><br><span class="line">        <span class="comment">//设置责任链的前驱和后继</span></span><br><span class="line">        handlerA.setSuccessor(handlerB);</span><br><span class="line">        handlerB.setSuccessor(handlerC);</span><br><span class="line">        <span class="comment">//客户端只要将不同的请假天数都交给A处理 </span></span><br><span class="line">        <span class="keyword">int</span>[] requests = &#123;<span class="number">2</span>,<span class="number">10</span>,<span class="number">4</span>,<span class="number">22</span>,<span class="number">18</span>,<span class="number">27</span>,<span class="number">30</span>&#125;;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> request : requests) &#123;</span><br><span class="line">            handlerA.handleRequest(request);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果:</p>
+<p>A的职责处理0-9天，B处理10-19，C处理20至29,30不在职责链内所以未处理未打印出来。</p>
+<blockquote>
+<p>class Chain.ConcreteHandlerA  处理请求  2<br>class Chain.ConcreteHandlerB  处理请求  10<br>class Chain.ConcreteHandlerA  处理请求  4<br>class Chain.ConcreteHandlerC  处理请求  22<br>class Chain.ConcreteHandlerB  处理请求  18<br>class Chain.ConcreteHandlerC  处理请求  27</p>
+</blockquote>
+<h4 id="关于纯与不纯"><a href="#关于纯与不纯" class="headerlink" title="关于纯与不纯"></a>关于纯与不纯</h4><ul>
+<li>纯：要么承担全部责任，要么将责任推给下家，不允许出现某一个具体处理者对象在承担了一部分或全部责任后又将责任向下传递的情况。</li>
+<li>不纯：允许某个请求被一个具体处理者部分处理后再向下传递，或者一个具体处理者处理完某请求后其后继处理者可以继续处理该请求，而且一个请求可以最终不被任何处理者对象所接收。</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>职责链模式通过建立一条链来组织请求的处理者，请求将沿着链进行传递，请求发送者无须知道请求在何时、何处以及如何被处理，实现了请求发送者与处理者的解耦。在软件开发中，如果遇到有多个对象可以处理同一请求时可以应用职责链模式，例如在Web应用开发中创建一个过滤器(Filter)链来对请求数据进行过滤，在工作流系统中实现公文的分级审批等等，使用职责链模式可以较好地解决此类问题。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://sherwinxie.xyz/代理模式总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -664,172 +851,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://sherwinxie.xyz/工厂模式总结/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="SherwinX">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="谢玮のBlog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/工厂模式总结/" itemprop="url">工厂模式总结</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-29T00:00:00+08:00">
-                2018-04-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/设计模式/" itemprop="url" rel="index">
-                    <span itemprop="name">设计模式</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="工厂模式是什么"><a href="#工厂模式是什么" class="headerlink" title="工厂模式是什么?"></a>工厂模式是什么?</h3><p>工厂模式主要是为创建对象提供了过渡接口，以便将创建对象的具体过程屏蔽隔离起来，达到提高灵活性的目的。 </p>
-<h5 id="GOF在《设计模式》一书中将工厂模式分为两大类："><a href="#GOF在《设计模式》一书中将工厂模式分为两大类：" class="headerlink" title="GOF在《设计模式》一书中将工厂模式分为两大类："></a>GOF在《设计模式》一书中将工厂模式分为两大类：</h5><ul>
-<li>工厂方法模式（Factory Method）</li>
-<li>抽象工厂模式（Abstract Factory）。</li>
-</ul>
-<p>将简单工厂模式（Simple Factory）看为工厂方法模式的一种特例，两者归为一类。</p>
-<h4 id="工厂模式的常见类型："><a href="#工厂模式的常见类型：" class="headerlink" title="工厂模式的常见类型："></a>工厂模式的常见类型：</h4><h5 id="1）简单工厂模式（Simple-Factory）"><a href="#1）简单工厂模式（Simple-Factory）" class="headerlink" title="1）简单工厂模式（Simple Factory）"></a>1）简单工厂模式（Simple Factory）</h5><p>简单工厂模式是属于创建型模式，又叫做静态工厂方法（Static Factory Method）模式，但不属于23种GOF设计模式之一。</p>
-<p>简单工厂模式是由一个工厂对象决定创建出哪一种产品类的实例。简单工厂模式是工厂模式家族中最简单实用的模式，可以理解为是不同工厂模式的一个特殊实现。</p>
-<p>这个缺点是每添一个对象，就需要对简单工厂进行修改（尽管不是删代码，仅仅是添一个switch case，但仍然违背了“不改代码”的开闭原则，不利于拓展）</p>
-<p>比如下图中的鼠标工厂和Mouse接口，专业生产鼠标，给参数0，生产戴尔鼠标，给参数1，生产惠普鼠标。<br><img src="https://ws2.sinaimg.cn/large/006tKfTcly1frfe6e6lrlj30k0078aaa.jpg" alt="simple"></p>
-<h5 id="2）工厂方法模式（Factory-Method）"><a href="#2）工厂方法模式（Factory-Method）" class="headerlink" title="2）工厂方法模式（Factory Method）"></a>2）工厂方法模式（Factory Method）</h5><p>本质就是代替new创建对象，每种产品由一种工厂来创建，一个工厂保存一个new，工厂方法模式,其原理就是对简单工厂也进行抽象。</p>
-<p>UML图解:</p>
-<p>生产哪种鼠标不再由参数决定，而是创建鼠标工厂时，由戴尔鼠标工厂创建。 后续直接调用具体鼠标工厂.生产鼠标()即可<br><img src="https://ws4.sinaimg.cn/large/006tKfTcly1frfe7amg36j30k007t0t5.jpg" alt="fac"></p>
-<h5 id="3）抽象工厂模式（Abstract-Factory）"><a href="#3）抽象工厂模式（Abstract-Factory）" class="headerlink" title="3）抽象工厂模式（Abstract Factory）"></a>3）抽象工厂模式（Abstract Factory）</h5><p>一个抽象工厂类，多个产品抽象类或接口（Mouse，Keybo），每个抽象产品类可以派生出多个具体产品类。   </p>
-<p>一个抽象工厂类，可以派生出多个具体工厂类。每个具体工厂类可以创建多个具体产品类的实例。</p>
-<p>和2)工厂方法模式的区别：</p>
-<ul>
-<li>工厂方法模式只有一个抽象产品类，而抽象工厂模式有多个。  </li>
-<li>工厂方法模式的具体工厂类只能创建一个具体产品类的实例，而抽象工厂模式可以创建多个。</li>
-</ul>
-<p>UML图解:</p>
-<p>抽象工厂模式也就是不仅生产鼠标，还可以生产键盘。也就是PC厂商是个父类，有生产鼠标，生产键盘两个接口。<br><img src="https://ws2.sinaimg.cn/large/006tKfTcly1frfe8lpxjdj30k00bjt9i.jpg" alt="ab"></p>
-<p>在抽象工厂模式中，假设我们需要再增加一个工厂，符合开闭原则。</p>
-<p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1frffgi5uv4j30k009nmy4.jpg" alt="add"></p>
-<p>添加一个产品同理。但需要注意的是如添加一个音响，在具体品牌工厂中填写对应创建该音响产品的方法。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://sherwinxie.xyz/单例模式总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -961,6 +982,172 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> Singleton &#123;</span><br><span class="line">  INSTANCE; <span class="comment">//定义一个枚举的元素，它就代表了Singleton的一个实例。</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">//单例可以有自定义的操作方法</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">whatSoEverMethod</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      <span class="comment">//功能处理</span></span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 该方法非必须，只是为了保证与其它方案一样使用静态方法得到实例</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> INSTANCE;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>优点：枚举本身是线程安全的，且能防止通过反射和反序列化创建多实例，是更简洁、高效、安全的实现单例的方式。</p>
 <p>缺点：使用的是枚举，而非类。 </p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://sherwinxie.xyz/工厂模式总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="SherwinX">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="谢玮のBlog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/工厂模式总结/" itemprop="url">工厂模式总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-29T00:00:00+08:00">
+                2018-04-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/设计模式/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="工厂模式是什么"><a href="#工厂模式是什么" class="headerlink" title="工厂模式是什么?"></a>工厂模式是什么?</h3><p>工厂模式主要是为创建对象提供了过渡接口，以便将创建对象的具体过程屏蔽隔离起来，达到提高灵活性的目的。 </p>
+<h5 id="GOF在《设计模式》一书中将工厂模式分为两大类："><a href="#GOF在《设计模式》一书中将工厂模式分为两大类：" class="headerlink" title="GOF在《设计模式》一书中将工厂模式分为两大类："></a>GOF在《设计模式》一书中将工厂模式分为两大类：</h5><ul>
+<li>工厂方法模式（Factory Method）</li>
+<li>抽象工厂模式（Abstract Factory）。</li>
+</ul>
+<p>将简单工厂模式（Simple Factory）看为工厂方法模式的一种特例，两者归为一类。</p>
+<h4 id="工厂模式的常见类型："><a href="#工厂模式的常见类型：" class="headerlink" title="工厂模式的常见类型："></a>工厂模式的常见类型：</h4><h5 id="1）简单工厂模式（Simple-Factory）"><a href="#1）简单工厂模式（Simple-Factory）" class="headerlink" title="1）简单工厂模式（Simple Factory）"></a>1）简单工厂模式（Simple Factory）</h5><p>简单工厂模式是属于创建型模式，又叫做静态工厂方法（Static Factory Method）模式，但不属于23种GOF设计模式之一。</p>
+<p>简单工厂模式是由一个工厂对象决定创建出哪一种产品类的实例。简单工厂模式是工厂模式家族中最简单实用的模式，可以理解为是不同工厂模式的一个特殊实现。</p>
+<p>这个缺点是每添一个对象，就需要对简单工厂进行修改（尽管不是删代码，仅仅是添一个switch case，但仍然违背了“不改代码”的开闭原则，不利于拓展）</p>
+<p>比如下图中的鼠标工厂和Mouse接口，专业生产鼠标，给参数0，生产戴尔鼠标，给参数1，生产惠普鼠标。<br><img src="https://ws2.sinaimg.cn/large/006tKfTcly1frfe6e6lrlj30k0078aaa.jpg" alt="simple"></p>
+<h5 id="2）工厂方法模式（Factory-Method）"><a href="#2）工厂方法模式（Factory-Method）" class="headerlink" title="2）工厂方法模式（Factory Method）"></a>2）工厂方法模式（Factory Method）</h5><p>本质就是代替new创建对象，每种产品由一种工厂来创建，一个工厂保存一个new，工厂方法模式,其原理就是对简单工厂也进行抽象。</p>
+<p>UML图解:</p>
+<p>生产哪种鼠标不再由参数决定，而是创建鼠标工厂时，由戴尔鼠标工厂创建。 后续直接调用具体鼠标工厂.生产鼠标()即可<br><img src="https://ws4.sinaimg.cn/large/006tKfTcly1frfe7amg36j30k007t0t5.jpg" alt="fac"></p>
+<h5 id="3）抽象工厂模式（Abstract-Factory）"><a href="#3）抽象工厂模式（Abstract-Factory）" class="headerlink" title="3）抽象工厂模式（Abstract Factory）"></a>3）抽象工厂模式（Abstract Factory）</h5><p>一个抽象工厂类，多个产品抽象类或接口（Mouse，Keybo），每个抽象产品类可以派生出多个具体产品类。   </p>
+<p>一个抽象工厂类，可以派生出多个具体工厂类。每个具体工厂类可以创建多个具体产品类的实例。</p>
+<p>和2)工厂方法模式的区别：</p>
+<ul>
+<li>工厂方法模式只有一个抽象产品类，而抽象工厂模式有多个。  </li>
+<li>工厂方法模式的具体工厂类只能创建一个具体产品类的实例，而抽象工厂模式可以创建多个。</li>
+</ul>
+<p>UML图解:</p>
+<p>抽象工厂模式也就是不仅生产鼠标，还可以生产键盘。也就是PC厂商是个父类，有生产鼠标，生产键盘两个接口。<br><img src="https://ws2.sinaimg.cn/large/006tKfTcly1frfe8lpxjdj30k00bjt9i.jpg" alt="ab"></p>
+<p>在抽象工厂模式中，假设我们需要再增加一个工厂，符合开闭原则。</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1frffgi5uv4j30k009nmy4.jpg" alt="add"></p>
+<p>添加一个产品同理。但需要注意的是如添加一个音响，在具体品牌工厂中填写对应创建该音响产品的方法。</p>
 
           
         
@@ -2050,460 +2237,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://sherwinxie.xyz/Redis-JCF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="SherwinX">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="谢玮のBlog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/Redis-JCF/" itemprop="url">Redis & JCF</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-27T23:54:22+08:00">
-                2018-03-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/技术/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Redis是什么-What-？"><a href="#Redis是什么-What-？" class="headerlink" title="Redis是什么(What)？"></a>Redis是什么(What)？</h2><p>Redis是Not only sql数据库中使用较为广泛的非关系型内存数据库，redis内部是一个key-value存储系统。它支持存储的value类型包括string(字符串)、list(链表)、set(集合)、zset(sorted set –有序集合)和hash（哈希类型，类似于Java中的map）。Redis基于内存运行并支持持久化的NoSQL数据库，是当前最热门的NoSql数据库之一，也被人们称为数据结构服务器。</p>
-<hr>
-<h3 id="Redis与JCF（Java-Collections-Framework"><a href="#Redis与JCF（Java-Collections-Framework" class="headerlink" title="Redis与JCF（Java Collections Framework)"></a>Redis与JCF（Java Collections Framework)</h3><p><strong>Collection 接口</strong>是一组允许重复的对象。继承于Itertor接口（迭代器）</p>
-<p>List 接口继承Collection，允许集合中有重复，有序引入位置索引。</p>
-<ul>
-<li>Vector  遗留类被ArrayList取代 不同点：返回枚举对象 线程安全(Synchronized)</li>
-<li>ArrayList 线程不安全(非同步)  时间复杂度：查询O(1) 增删O(n)</li>
-<li>LinkedList 线程不安全  时间复杂度：查询O(n) 增删O(1)</li>
-</ul>
-<p>Set 接口继承Collection，无序无位置索引，不允许重复元素，模仿了数学上集合的概念。</p>
-<ul>
-<li>HashSet （数组链表结合 增删查时间复杂度都O(1) 增加空间复杂度为代价）<ul>
-<li>LinkedHashSet （子类，加入存放顺序同时也增加了开支 效率低于HashSet）</li>
-</ul>
-</li>
-<li>SortedSet （子类，根据score权值自然排序）<ul>
-<li>TreeSet (内部是红黑树 所有元素自然排序)</li>
-</ul>
-</li>
-</ul>
-<hr>
-<p>  <strong>Map 接口</strong>与Collection接口无任何关系、Map的典型应用是访问键-值对，而不是单个独立的元素。</p>
-<ul>
-<li>Hashtable （遗留类与HashMap类似） 同步线程安全<ul>
-<li>Properties 属性集（键值都是字符串 不支持泛型操作 也可以保存到文件做配置用 config.properties）</li>
-</ul>
-</li>
-<li>HashMap （允许null值 不保证存放顺序）<ul>
-<li>LinkedHashMap（双向链表 加入顺序）</li>
-</ul>
-</li>
-<li>SortedMap （加入键权重自然排序）<ul>
-<li>TreeMap </li>
-</ul>
-</li>
-</ul>
-<hr>
-<h3 id="数据类型的选择"><a href="#数据类型的选择" class="headerlink" title="数据类型的选择"></a>数据类型的选择</h3><p>主要从存放数据的要求和读写数据的效率两方面考虑：</p>
-<ol>
-<li>存放数据要求</li>
-</ol>
-<ul>
-<li>数据存放对顺序没有要求，HashSet</li>
-<li>数据存放对顺序有要求，ArrayList</li>
-<li>数据存放对顺序有要求，且频繁增删元素，LinkedList</li>
-<li>数据存放要以Key-Value存放，HashMap</li>
-<li>数据要以Key-Value还要以指定的自然顺序排序，TreeSet或TreeMap</li>
-</ul>
-<ol start="2">
-<li>读写效率要求</li>
-</ol>
-<ul>
-<li>以Hash开头的集合类，读取和修改的效率都最高</li>
-<li>以Array开头的集合类，元素的读取快但修改慢</li>
-<li>以Linked开头的集合类，元素的读取慢但修改快</li>
-</ul>
-<h2 id="为什么要用Redis-Why-？"><a href="#为什么要用Redis-Why-？" class="headerlink" title="为什么要用Redis(Why)？"></a>为什么要用Redis(Why)？</h2><ol>
-<li><p>当数据量的总大小一个机器放不下时。 </p>
-</li>
-<li><p>数据索引一个机器的内存放不下时。 </p>
-</li>
-<li><p>访问量（读写混合）一个实例放不下时。</p>
-</li>
-<li><p>对扩展性要求高的数据</p>
-</li>
-<li><p>Cache作为Dao和mysql的中间缓存<br>将所有的数据先保存到缓存中，然后再存入mysql中，减小数据库压力，提高效率。 但是当数据再次增加到又一个量级，上面的方式也不能满足需求，由于数据库的写入压力增加，Memcached只能缓解数据库的读取压力。读写集中在一个数据库上让数据库不堪重负，大部分网站开始使用主从复制技术来达到读写分离，以提高读写性能和读库的可扩展性。Mysql的master-slave模式成为这个时候的网站标配了。</p>
-</li>
-</ol>
-<h3 id="NoSql的应用案例"><a href="#NoSql的应用案例" class="headerlink" title="NoSql的应用案例"></a>NoSql的应用案例</h3><ol>
-<li><p>大数据时代淘宝、微信、以及微博等都广泛的使用了redis数据库，将一些固定不变的数据例如学校，区域等固定的信息保存在关系型数据库中。然后对于经常变化的数据例如淘宝每个节日都会有比较热门的搜索显示在搜索框，当节日过去关键字自动删除，为了便于管理，可以将这些数据保存在redis数据库中，并设置过期时间，到达时间就自动删除。</p>
-</li>
-<li><p>为了缓解数据库压力，微博首先将发送的微博保存到redis数据库，自己可以立即查看到，然后将内存中的数据同步到关系型数据库。</p>
-</li>
-</ol>
-<h2 id="Redis怎么用-How-？"><a href="#Redis怎么用-How-？" class="headerlink" title="Redis怎么用(How)？"></a>Redis怎么用(How)？</h2><h3 id="Redis安装-http-redis-io"><a href="#Redis安装-http-redis-io" class="headerlink" title="Redis安装  http://redis.io"></a>Redis安装  <a href="http://redis.io" target="_blank" rel="noopener">http://redis.io</a></h3><ul>
-<li>启动Redis服务器命令 <strong>redis-server</strong> </li>
-<li>启动redis客户端命令  <strong>redis-cli</strong>  </li>
-<li><a href="https://redisdesktop.com/" target="_blank" rel="noopener">Redis可视化工具 Redis Desktop Manager</a> </li>
-</ul>
-<h3 id="String"><a href="#String" class="headerlink" title="String"></a>String</h3><p>(二进制安全，可以包含任何数据源，最大512M）</p>
-<table>
-<thead>
-<tr>
-<th>String命令</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>get <key></key></td>
-<td>查看对应的键值</td>
-</tr>
-<tr>
-<td>set <key> <value></value></key></td>
-<td>添加键值对</td>
-</tr>
-<tr>
-<td>append <key> <value></value></key></td>
-<td>将给定的value 追加到原值的末尾</td>
-</tr>
-<tr>
-<td>setnx <key> <value></value></key></td>
-<td>当key 不存在的时候设置key值</td>
-</tr>
-<tr>
-<td>incr <key></key></td>
-<td>将key中储存的数字加1，如果为空，则值为1</td>
-</tr>
-<tr>
-<td>decr <key></key></td>
-<td>将key中储存的数字减1，如果为空，则值为-1</td>
-</tr>
-<tr>
-<td>incrby/decrby <key>&lt;步长&gt;</key></td>
-<td>将key中的数字增减</td>
-</tr>
-</tbody>
-</table>
-<h3 id="List"><a href="#List" class="headerlink" title="List"></a>List</h3><p>(单键多值Redis列表是简单的字符串列表，从左或者从右插入<br>底层是双向链表，对两端的操作性能高，查询性能低)</p>
-<table>
-<thead>
-<tr>
-<th>List命令</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>lpush/rpush <key> <value1> <value2> ..</value2></value1></key></td>
-<td>从左或从右插入多个值</td>
-</tr>
-<tr>
-<td>lpop/rpop <key></key></td>
-<td>从左边或右边吐出一个值，值光键亡</td>
-</tr>
-<tr>
-<td>rpoplpush <key1> <key2></key2></key1></td>
-<td>从key1 右边吐出一个值到key2的左边</td>
-</tr>
-<tr>
-<td>lrange <key> <index></index></key></td>
-<td>按照索引下标获取元素 从左到右</td>
-</tr>
-<tr>
-<td>lindex <key> <index></index></key></td>
-<td>按照索引下标获取元素 从左到右</td>
-</tr>
-<tr>
-<td>llen <key></key></td>
-<td>获取列表长度    获取列表长度</td>
-</tr>
-<tr>
-<td>linsert <key> before <value> <newvalue></newvalue></value></key></td>
-<td>在key中value前插入newvalue</td>
-</tr>
-</tbody>
-</table>
-<h3 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h3><p>(模拟数学上的集合，与list不同为无序集合，保证列表中不会有重复数据，底层是一个value为null的hash表）</p>
-<table>
-<thead>
-<tr>
-<th>Set命令</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>sadd <key> <value1> <value2></value2></value1></key></td>
-<td>将多个元素加入到key中，重复值忽略</td>
-</tr>
-<tr>
-<td>smembers <key></key></td>
-<td>取出该集合的所有值</td>
-</tr>
-<tr>
-<td>sismember <key> <value></value></key></td>
-<td>判断集合key中是否有该value值 有就1 没有0</td>
-</tr>
-<tr>
-<td>scard <key></key></td>
-<td>返回该集合的元素个数</td>
-</tr>
-<tr>
-<td>srem <key> <value1> <value2></value2></value1></key></td>
-<td>删除集合中的某个元素</td>
-</tr>
-<tr>
-<td>spop <key></key></td>
-<td>随机吐出该集合一个值</td>
-</tr>
-<tr>
-<td>srandmember <key> <n></n></key></td>
-<td>随机从集合中取出n个值，不会从集合中删除</td>
-</tr>
-<tr>
-<td>smove <key1> <key2> <value></value></key2></key1></td>
-<td>将key1中的value 移动到key2 中</td>
-</tr>
-<tr>
-<td>sinter <key1> <key2></key2></key1></td>
-<td>返回两个集合的交集元素</td>
-</tr>
-<tr>
-<td>sunion <key1> <key2></key2></key1></td>
-<td>返回两个集合的并集</td>
-</tr>
-</tbody>
-</table>
-<h3 id="SortedSet"><a href="#SortedSet" class="headerlink" title="SortedSet"></a>SortedSet</h3><p>(排序的set集合，每个成员都关联了score，可以用来排序)</p>
-<table>
-<thead>
-<tr>
-<th>SortedSet命令</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>zadd<key><score1><value1><score2><value2></value2></score2></value1></score1></key></td>
-<td>将一个或多个元素以及score加入zset</td>
-</tr>
-<tr>
-<td>zrange<key><start><stop></stop> withscore</start></key></td>
-<td>返回下标在区间内的集合，带有score</td>
-</tr>
-<tr>
-<td>zrangebyscore <ket> <min> <max>[withscore] [limit offset count]</max></min></ket></td>
-<td>返回key中 score介于min和max中的成员，升序排列</td>
-</tr>
-<tr>
-<td>zrevrangerbyscore <key> <min> <max> [withscore] [limit offset count]</max></min></key></td>
-<td>降序</td>
-</tr>
-<tr>
-<td>zincrby <key> <increment> <value></value></increment></key></td>
-<td>在key集合中的value上增加increment</td>
-</tr>
-<tr>
-<td>zrem <key> <value></value></key></td>
-<td>删除key集合下的指定元素</td>
-</tr>
-<tr>
-<td>zcount <key> <min><max></max></min></key></td>
-<td>统计 区间内的元素个数</td>
-</tr>
-<tr>
-<td>zcord <key></key></td>
-<td>获取集合中的元素个数</td>
-</tr>
-<tr>
-<td>zrank <key><value></value></key></td>
-<td>查询value在key中的排名，从0开始</td>
-</tr>
-</tbody>
-</table>
-<h3 id="Hash"><a href="#Hash" class="headerlink" title="Hash"></a>Hash</h3><p>（键值对集合，类似map&lt;String,Object&gt;）</p>
-<table>
-<thead>
-<tr>
-<th>Hash命令</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>hset <key> <filed> <value></value></filed></key></td>
-<td>给key 集合中的file 键赋值value</td>
-</tr>
-<tr>
-<td>hget <key1> <field></field></key1></td>
-<td>从key1 集合file取出value</td>
-</tr>
-<tr>
-<td>hmset <key1> <field1> <value1> <field2> <value2></value2></field2></value1></field1></key1></td>
-<td>批量设置hash的值</td>
-</tr>
-<tr>
-<td>hexists <key> <field></field></key></td>
-<td>查看key中的field 是否存在</td>
-</tr>
-<tr>
-<td>hkeys <key></key></td>
-<td>列出key中所有的filed</td>
-</tr>
-<tr>
-<td>hvals <key></key></td>
-<td>列出该hash集合中所有的value</td>
-</tr>
-</tbody>
-</table>
-<h3 id="redis持久化"><a href="#redis持久化" class="headerlink" title="redis持久化"></a>redis持久化</h3><p>两种方式：RDB（Redis DataBase）和AOF（Append of File）</p>
-<ol>
-<li>RDB：在指定时间间隔内，将内存中的数据作为一个快照文件（snapshot）写入到磁盘，读取的时候也是直接读取snapshot文件到内存中</li>
-<li>AOF : 以日志形式记录每个写操作，启动时通过日志恢复操作</li>
-</ol>
-<h3 id="Redis事务"><a href="#Redis事务" class="headerlink" title="Redis事务"></a>Redis事务</h3><p>输入multi，输入的命令都会依次进入到队列中，但不会执行，直到输入exec，redis会将之前命令队列中的命令依次执行，通过discard可以放弃组队。</p>
-<ol>
-<li>主要作用：序列化操作，串联多个命令防止别的命令插队</li>
-<li>悲观锁：每次拿到数据的时候都会上锁，或者等待别人处理完再去拿锁，传统的关系型数据库里边很多用到了这种锁机制，比如行锁、表锁、读锁、写锁</li>
-<li>乐观锁：每次拿数据的时候总认为别人不会修改数据，所以不会上锁。但是更新的时候回去判断别人有没有更改数据，使用版本号机制。乐观锁适用于多读的应用类型，可以提高吞吐量。</li>
-<li>Redis使用乐观锁：redis就是利用check-and-set机制实现事务</li>
-</ol>
-<h3 id="Redis订阅-发布"><a href="#Redis订阅-发布" class="headerlink" title="Redis订阅/发布"></a>Redis订阅/发布</h3><p>是进程中的一种消息通信模式，发送者pub发送消息，订阅者sub接收消息.</p>
-<h3 id="Redis主从复制"><a href="#Redis主从复制" class="headerlink" title="Redis主从复制"></a>Redis主从复制</h3><ol>
-<li>是什么：主从复制就是主机数据更新后根据配置和策略，自动同步到备份机的master/slaver机制，master写为主，slave读为主</li>
-<li>为什么：1）读写分离，性能拓展。 2）容灾快速恢复</li>
-<li>配置服务器（配从不配主）</li>
-</ol>
-<h3 id="集群分布"><a href="#集群分布" class="headerlink" title="集群分布"></a>集群分布</h3><p>实现对redis的水平拓展，启动n的redis节点，将整个数据分布在这n个节点中.</p>
-<ol>
-<li>配置conf文件</li>
-<li>配置cluster文件</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2558,7 +2291,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2580,7 +2313,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
