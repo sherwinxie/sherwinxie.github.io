@@ -83,11 +83,11 @@
 <meta name="keywords" content="面向对象设计原则与模式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="面向对象设计原则及常见模式">
-<meta property="og:url" content="http://sherwinxie.xyz/OODandOOP/index.html">
-<meta property="og:site_name" content="谢玮のBlog">
+<meta property="og:url" content="http://sherwinxie.xyz/design/OODandOOP/index.html">
+<meta property="og:site_name" content="谢玮の技术Blog">
 <meta property="og:description" content="面向对象编程(OOP)三特性 封装(Encapsulation) 继承(Inheritance) 多态(Polymorphism)  其实还有一个特性叫 抽象(Abstraction) 这里主要说说多态 前提条件： 1.要有继承关系 2.子类要重写父类的方法 3.父类引用指向子类对象  多态的动态绑定(也叫延迟绑定)方法的动态绑定是指，在程序运行期间判断对象变量所引用的对象的实际类型，根据其实际类">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-05-18T15:01:57.000Z">
+<meta property="og:updated_time" content="2018-05-24T04:45:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面向对象设计原则及常见模式">
 <meta name="twitter:description" content="面向对象编程(OOP)三特性 封装(Encapsulation) 继承(Inheritance) 多态(Polymorphism)  其实还有一个特性叫 抽象(Abstraction) 这里主要说说多态 前提条件： 1.要有继承关系 2.子类要重写父类的方法 3.父类引用指向子类对象  多态的动态绑定(也叫延迟绑定)方法的动态绑定是指，在程序运行期间判断对象变量所引用的对象的实际类型，根据其实际类">
@@ -109,24 +109,24 @@
       author: 'Author'
     },
     algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
+      applicationID: 'IBBB7O55IY',
+      apiKey: '689b1df622a8717252ea7fe5b9012794',
+      indexName: 'sherwinxie',
       hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+      labels: {"input_placeholder":"搜索谢玮的笔记","hits_empty":"抱歉，未在谢玮のBlog中发现您搜索的内容: ${query}","hits_stats":"发现 ${hits} 个结果，耗时 ${time} ms"}
     }
   };
 </script>
 
 
 
-  <link rel="canonical" href="http://sherwinxie.xyz/OODandOOP/"/>
+  <link rel="canonical" href="http://sherwinxie.xyz/design/OODandOOP/"/>
 
 
 
 
 
-  <title>面向对象设计原则及常见模式 | 谢玮のBlog</title>
+  <title>面向对象设计原则及常见模式 | 谢玮の技术Blog</title>
   
 
 
@@ -156,12 +156,12 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">谢玮のBlog</span>
+        <span class="site-title">谢玮の技术Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle">Doing is better than saying.</p>
+        <p class="site-subtitle">不积跬步，无以至千里，不积小流，无以成江海。</p>
       
   </div>
 
@@ -212,9 +212,47 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
   
 </nav>
 
@@ -243,7 +281,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://sherwinxie.xyz/OODandOOP/">
+    <link itemprop="mainEntityOfPage" href="http://sherwinxie.xyz/design/OODandOOP/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="SherwinX">
@@ -252,7 +290,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="谢玮のBlog">
+      <meta itemprop="name" content="谢玮の技术Blog">
     </span>
 
     
@@ -272,8 +310,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-28T00:00:00+08:00">
-                2018-04-28
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-02T00:00:00+08:00">
+                2018-05-02
               </time>
             
 
@@ -417,12 +455,12 @@
 </tr>
 </tbody>
 </table>
-<h4 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h4><p><a href="">工厂设计模式</a></p>
-<h4 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h4><p><a href="">单例模式</a></p>
-<h4 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h4><p><a href="">动态规划设计模式</a></p>
-<h4 id="责任链"><a href="#责任链" class="headerlink" title="责任链"></a>责任链</h4><p><a href="">责任链设计模式</a></p>
-<h4 id="装饰模式"><a href="#装饰模式" class="headerlink" title="装饰模式"></a>装饰模式</h4><p><a href="">装饰模式</a></p>
-<h4 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h4><p><a href="">观察者模式</a></p>
+<h4 id="工厂模式（Factory-Pattern）"><a href="#工厂模式（Factory-Pattern）" class="headerlink" title="工厂模式（Factory Pattern）"></a>工厂模式（Factory Pattern）</h4><p><a href="https://sherwinxie.xyz/design/工厂模式总结/">静态工厂/工厂方法/抽象工厂设计模式</a></p>
+<h4 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h4><p><a href="https://sherwinxie.xyz/design/单例模式总结/">单例模式</a></p>
+<h4 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a>代理模式</h4><p><a href="https://sherwinxie.xyz/design/代理模式总结/">静态代理/动态代理</a></p>
+<h4 id="责任链"><a href="#责任链" class="headerlink" title="责任链"></a>责任链</h4><p><a href="https://sherwinxie.xyz/design/责任链模式总结/">责任链设计模式</a></p>
+<h4 id="装饰模式"><a href="#装饰模式" class="headerlink" title="装饰模式"></a>装饰模式</h4><p><a href="https://sherwinxie.xyz/design/装饰器模式总结/">装饰模式</a></p>
+<h4 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h4><p><a href="https://sherwinxie.xyz/design/工厂模式总结/">观察者模式</a></p>
 
       
     </div>
@@ -432,6 +470,30 @@
 
     
 
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Love me and you'll reward me ~</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechat-reward-image.png" alt="SherwinX WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
     
 
     
@@ -453,8 +515,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/常见排序算法整理/" rel="next" title="常见排序算法整理">
-                <i class="fa fa-chevron-left"></i> 常见排序算法整理
+              <a href="/design/代理模式总结/" rel="next" title="代理模式总结">
+                <i class="fa fa-chevron-left"></i> 代理模式总结
               </a>
             
           </div>
@@ -463,8 +525,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/工厂模式总结/" rel="prev" title="工厂模式总结">
-                工厂模式总结 <i class="fa fa-chevron-right"></i>
+              <a href="/design/责任链模式总结/" rel="prev" title="责任链模式总结">
+                责任链模式总结 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -546,7 +608,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -568,7 +630,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
@@ -617,7 +679,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#面向对象编程-OOP-三特性"><span class="nav-number">1.</span> <span class="nav-text">面向对象编程(OOP)三特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#这里主要说说多态-前提条件："><span class="nav-number">1.0.1.</span> <span class="nav-text">这里主要说说多态 前提条件：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多态的动态绑定-也叫延迟绑定"><span class="nav-number">1.0.2.</span> <span class="nav-text">多态的动态绑定(也叫延迟绑定)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多态的向上转型"><span class="nav-number">1.0.3.</span> <span class="nav-text">多态的向上转型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多态的向下转型"><span class="nav-number">1.0.4.</span> <span class="nav-text">多态的向下转型</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OOD的七大设计原则-（SOLID-Demeter-Composite）"><span class="nav-number">2.</span> <span class="nav-text">OOD的七大设计原则 （SOLID + Demeter + Composite）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-单一职责原则（Single-Responsibility-Principle）"><span class="nav-number">2.0.1.</span> <span class="nav-text">1. 单一职责原则（Single Responsibility Principle）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-开闭原则（Open-Close-Principle）"><span class="nav-number">2.0.2.</span> <span class="nav-text">2. 开闭原则（Open Close Principle）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-里氏替换原则（Liskov-Substitution-Principle）"><span class="nav-number">2.0.3.</span> <span class="nav-text">3. 里氏替换原则（Liskov Substitution Principle）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-接口隔离原则（Interface-Segregation-Principle）"><span class="nav-number">2.0.4.</span> <span class="nav-text">4. 接口隔离原则（Interface Segregation Principle）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-依赖倒置原则（Dependence-Inversion-Principle）"><span class="nav-number">2.0.5.</span> <span class="nav-text">5. 依赖倒置原则（Dependence Inversion Principle）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-迪米特法则（Law-Of-Demeter）"><span class="nav-number">2.0.6.</span> <span class="nav-text">6. 迪米特法则（Law Of Demeter）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-组合-聚合复用原则（Composite-Aggregate-Reuse-Principle-CARP）"><span class="nav-number">2.0.7.</span> <span class="nav-text">7. 组合/聚合复用原则（Composite/Aggregate Reuse Principle CARP）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OOP设计模式："><span class="nav-number">3.</span> <span class="nav-text">OOP设计模式：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#设计模式是什么"><span class="nav-number">3.1.</span> <span class="nav-text">设计模式是什么?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么学设计模式"><span class="nav-number">3.2.</span> <span class="nav-text">为什么学设计模式?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设计模式分类-How"><span class="nav-number">3.3.</span> <span class="nav-text">设计模式分类(How)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#工厂模式"><span class="nav-number">3.3.1.</span> <span class="nav-text">工厂模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#单例模式"><span class="nav-number">3.3.2.</span> <span class="nav-text">单例模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#动态规划"><span class="nav-number">3.3.3.</span> <span class="nav-text">动态规划</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#责任链"><span class="nav-number">3.3.4.</span> <span class="nav-text">责任链</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#装饰模式"><span class="nav-number">3.3.5.</span> <span class="nav-text">装饰模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#观察者模式"><span class="nav-number">3.3.6.</span> <span class="nav-text">观察者模式</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#面向对象编程-OOP-三特性"><span class="nav-number">1.</span> <span class="nav-text">面向对象编程(OOP)三特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#这里主要说说多态-前提条件："><span class="nav-number">1.0.1.</span> <span class="nav-text">这里主要说说多态 前提条件：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多态的动态绑定-也叫延迟绑定"><span class="nav-number">1.0.2.</span> <span class="nav-text">多态的动态绑定(也叫延迟绑定)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多态的向上转型"><span class="nav-number">1.0.3.</span> <span class="nav-text">多态的向上转型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多态的向下转型"><span class="nav-number">1.0.4.</span> <span class="nav-text">多态的向下转型</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OOD的七大设计原则-（SOLID-Demeter-Composite）"><span class="nav-number">2.</span> <span class="nav-text">OOD的七大设计原则 （SOLID + Demeter + Composite）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-单一职责原则（Single-Responsibility-Principle）"><span class="nav-number">2.0.1.</span> <span class="nav-text">1. 单一职责原则（Single Responsibility Principle）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-开闭原则（Open-Close-Principle）"><span class="nav-number">2.0.2.</span> <span class="nav-text">2. 开闭原则（Open Close Principle）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-里氏替换原则（Liskov-Substitution-Principle）"><span class="nav-number">2.0.3.</span> <span class="nav-text">3. 里氏替换原则（Liskov Substitution Principle）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-接口隔离原则（Interface-Segregation-Principle）"><span class="nav-number">2.0.4.</span> <span class="nav-text">4. 接口隔离原则（Interface Segregation Principle）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-依赖倒置原则（Dependence-Inversion-Principle）"><span class="nav-number">2.0.5.</span> <span class="nav-text">5. 依赖倒置原则（Dependence Inversion Principle）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-迪米特法则（Law-Of-Demeter）"><span class="nav-number">2.0.6.</span> <span class="nav-text">6. 迪米特法则（Law Of Demeter）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-组合-聚合复用原则（Composite-Aggregate-Reuse-Principle-CARP）"><span class="nav-number">2.0.7.</span> <span class="nav-text">7. 组合/聚合复用原则（Composite/Aggregate Reuse Principle CARP）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OOP设计模式："><span class="nav-number">3.</span> <span class="nav-text">OOP设计模式：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#设计模式是什么"><span class="nav-number">3.1.</span> <span class="nav-text">设计模式是什么?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么学设计模式"><span class="nav-number">3.2.</span> <span class="nav-text">为什么学设计模式?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设计模式分类-How"><span class="nav-number">3.3.</span> <span class="nav-text">设计模式分类(How)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#工厂模式（Factory-Pattern）"><span class="nav-number">3.3.1.</span> <span class="nav-text">工厂模式（Factory Pattern）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#单例模式"><span class="nav-number">3.3.2.</span> <span class="nav-text">单例模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代理模式"><span class="nav-number">3.3.3.</span> <span class="nav-text">代理模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#责任链"><span class="nav-number">3.3.4.</span> <span class="nav-text">责任链</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#装饰模式"><span class="nav-number">3.3.5.</span> <span class="nav-text">装饰模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#观察者模式"><span class="nav-number">3.3.6.</span> <span class="nav-text">观察者模式</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -817,6 +879,19 @@
   
 
 
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
 
 
 

@@ -84,7 +84,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="信息安全加密算法总结">
 <meta property="og:url" content="http://sherwinxie.xyz/信息安全加密算法总结/index.html">
-<meta property="og:site_name" content="谢玮のBlog">
+<meta property="og:site_name" content="谢玮の技术Blog">
 <meta property="og:description" content="什么是信息安全?保证信息的保密性、可用性、完整性。 为什么了解信息安全？有助于我们理解 https 、加密算法、数字签名、数字证书CA、SSL之间的关系。 另外，助于我们理解区块链的技术，源于信息安全。 区块链在信息安全上的的优势至少有三个方面：  利用高冗余的分布式数据存储保障信息的数据完整性 利用密码学的相关原理进行数据验证，保证不可篡改 在权限管理方面，运用了多私钥规则进行访问权限控制  加">
 <meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2018-05-19T15:35:45.000Z">
@@ -109,11 +109,11 @@
       author: 'Author'
     },
     algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
+      applicationID: 'IBBB7O55IY',
+      apiKey: '689b1df622a8717252ea7fe5b9012794',
+      indexName: 'sherwinxie',
       hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+      labels: {"input_placeholder":"搜索谢玮的笔记","hits_empty":"抱歉，未在谢玮のBlog中发现您搜索的内容: ${query}","hits_stats":"发现 ${hits} 个结果，耗时 ${time} ms"}
     }
   };
 </script>
@@ -126,7 +126,7 @@
 
 
 
-  <title>信息安全加密算法总结 | 谢玮のBlog</title>
+  <title>信息安全加密算法总结 | 谢玮の技术Blog</title>
   
 
 
@@ -156,12 +156,12 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">谢玮のBlog</span>
+        <span class="site-title">谢玮の技术Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle">Doing is better than saying.</p>
+        <p class="site-subtitle">不积跬步，无以至千里，不积小流，无以成江海。</p>
       
   </div>
 
@@ -212,9 +212,47 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
   
 </nav>
 
@@ -252,7 +290,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="谢玮のBlog">
+      <meta itemprop="name" content="谢玮の技术Blog">
     </span>
 
     
@@ -427,6 +465,30 @@
     
 
     
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Love me and you'll reward me ~</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechat-reward-image.png" alt="SherwinX WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
 
     
 
@@ -447,7 +509,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/单例模式总结/" rel="next" title="单例模式总结">
+              <a href="/design/单例模式总结/" rel="next" title="单例模式总结">
                 <i class="fa fa-chevron-left"></i> 单例模式总结
               </a>
             
@@ -457,7 +519,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/代理模式总结/" rel="prev" title="代理模式总结">
+              <a href="/design/代理模式总结/" rel="prev" title="代理模式总结">
                 代理模式总结 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -540,7 +602,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -562,7 +624,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
@@ -811,6 +873,19 @@
   
 
 
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
 
 
 

@@ -81,13 +81,13 @@
 
 <meta name="description" content="Doing is better than saying.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="谢玮のBlog">
+<meta property="og:title" content="谢玮の技术Blog">
 <meta property="og:url" content="http://sherwinxie.xyz/index.html">
-<meta property="og:site_name" content="谢玮のBlog">
+<meta property="og:site_name" content="谢玮の技术Blog">
 <meta property="og:description" content="Doing is better than saying.">
 <meta property="og:locale" content="en">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="谢玮のBlog">
+<meta name="twitter:title" content="谢玮の技术Blog">
 <meta name="twitter:description" content="Doing is better than saying.">
 
 
@@ -107,11 +107,11 @@
       author: 'Author'
     },
     algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
+      applicationID: 'IBBB7O55IY',
+      apiKey: '689b1df622a8717252ea7fe5b9012794',
+      indexName: 'sherwinxie',
       hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+      labels: {"input_placeholder":"搜索谢玮的笔记","hits_empty":"抱歉，未在谢玮のBlog中发现您搜索的内容: ${query}","hits_stats":"发现 ${hits} 个结果，耗时 ${time} ms"}
     }
   };
 </script>
@@ -124,7 +124,7 @@
 
 
 
-  <title>谢玮のBlog</title>
+  <title>谢玮の技术Blog</title>
   
 
 
@@ -155,12 +155,12 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">谢玮のBlog</span>
+        <span class="site-title">谢玮の技术Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle">Doing is better than saying.</p>
+        <p class="site-subtitle">不积跬步，无以至千里，不积小流，无以成江海。</p>
       
   </div>
 
@@ -211,9 +211,47 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
   
 </nav>
 
@@ -242,7 +280,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://sherwinxie.xyz/责任链模式/">
+    <link itemprop="mainEntityOfPage" href="http://sherwinxie.xyz/design/装饰器模式总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="SherwinX">
@@ -251,7 +289,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="谢玮のBlog">
+      <meta itemprop="name" content="谢玮の技术Blog">
     </span>
 
     
@@ -261,7 +299,175 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/责任链模式/" itemprop="url">责任链模式总结</a></h1>
+                <a class="post-title-link" href="/design/装饰器模式总结/" itemprop="url">装饰器模式总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-03T00:00:00+08:00">
+                2018-05-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/设计模式/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="什么是装饰器设计模式"><a href="#什么是装饰器设计模式" class="headerlink" title="什么是装饰器设计模式?"></a>什么是装饰器设计模式?</h2><h4 id="装饰器模式-Decorator-Pattern-："><a href="#装饰器模式-Decorator-Pattern-：" class="headerlink" title="装饰器模式(Decorator Pattern)："></a>装饰器模式(Decorator Pattern)：</h4><p>允许向一个现有的对象添加新的功能，同时又不改变其结构。装饰者可以在所委托被装饰者的行为之前或之后加上自己的行为，以达到特定的目的。</p>
+<p>这种类型的设计模式属于结构型模式，它是作为现有的类的一个包装。</p>
+<h4 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h4><ul>
+<li><p>优点：装饰类和被装饰类可以独立发展，不会相互耦合，装饰模式是继承的一个替代模式，装饰模式可以动态扩展一个实现类的功能。</p>
+</li>
+<li><p>缺点：多层装饰比较复杂。</p>
+<h4 id="装饰器模式与代理模式的异同"><a href="#装饰器模式与代理模式的异同" class="headerlink" title="装饰器模式与代理模式的异同"></a>装饰器模式与代理模式的异同</h4></li>
+<li><p>注意装饰器模式和静态代理的异同，相同的是：静态代理类也实现了被代理类的接口，和装饰器Decorator接口也实现了Component接口同理，所以可以把静态代理看成是装饰器模式的一种，即装饰器模式只有一个装饰类，不同的是：静态代理只能做一种功能增强，而装饰器可以做多种类的功能增强。</p>
+</li>
+<li>装饰器模式和动态代理就不是一个概念的了，装饰器模式关注于在一个对象上动态的添加方法，然而动态代理模式关注于控制对对象的访问。动态代理类不用实现被代理类的具体接口，动态代理本质是对被代理目标对象进行控制，而装饰器只是附加装饰没有控制权。<a href="">动态代理模式详见《代理模式总结》</a></li>
+</ul>
+<h4 id="UML类图："><a href="#UML类图：" class="headerlink" title="UML类图："></a>UML类图：</h4><p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1frjclu0ir1j317i0twn0p.jpg" alt="image"></p>
+<p>抽象组件（Component）：需要装饰的抽象对象。<br><br>具体组件（ConcreteComponent）：是我们需要装饰的目标对象。<br><br>抽象装饰类（Decorator）：内含指向抽象组件的引用及装饰者共有的方法。<br><br>具体装饰类（ConcreteDecorator）：被装饰的对象A和B。<br></p>
+<h4 id="装饰器模式应用"><a href="#装饰器模式应用" class="headerlink" title="装饰器模式应用"></a>装饰器模式应用</h4><blockquote>
+<p>假设我们现在去咖啡店买一杯咖啡，可以加奶、加糖等等。咖啡和奶、糖分别有不同的价格。<br>咖啡就是我们的组件，奶和糖是我们的装饰者，现在我们要计算调制这样一杯咖啡花费多少。</p>
+</blockquote>
+<p>UML类图：<br><img src="https://ws2.sinaimg.cn/large/006tNc79ly1frje3e6k98j31720yotcd.jpg" alt="image"></p>
+<h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现:"></a>代码实现:</h4><p>抽象Drink接口：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Drink</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">float</span> <span class="title">cost</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getDescription</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Coffe类:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Coffee</span> <span class="keyword">implements</span> <span class="title">Drink</span> </span>&#123;</span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">private</span> String description = <span class="string">"coffee"</span>;</span><br><span class="line">    <span class="comment">//每杯 coffee 售价 10 元</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">float</span> <span class="title">cost</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getDescription</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> description;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>饮品调料抽象类:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">CondimentDecorator</span> <span class="keyword">implements</span> <span class="title">Drink</span> </span>&#123;</span><br><span class="line">    <span class="keyword">protected</span> Drink decoratorDrink;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">CondimentDecorator</span><span class="params">(Drink decoratorDrink)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.decoratorDrink = decoratorDrink;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">float</span> <span class="title">cost</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> decoratorDrink.cost();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getDescription</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> decoratorDrink.getDescription();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>牛奶调料类(装饰器):<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Milk</span> <span class="keyword">extends</span> <span class="title">CondimentDecorator</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Milk</span><span class="params">(Drink decoratorDrink)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(decoratorDrink);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">float</span> <span class="title">cost</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.cost() + <span class="number">3</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getDescription</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.getDescription() + <span class="string">" milk"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>糖糖调料类(装饰器):<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Sugar</span> <span class="keyword">extends</span> <span class="title">CondimentDecorator</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Sugar</span><span class="params">(Drink decoratorDrink)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(decoratorDrink);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">float</span> <span class="title">cost</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.cost() + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getDescription</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.getDescription() + <span class="string">" sugar"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>咖啡店类(Client)：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CoffeeShop</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//点一杯coffee(被装饰对象)</span></span><br><span class="line">        Drink drink = <span class="keyword">new</span> Coffee();</span><br><span class="line">        System.out.println(drink.getDescription() + <span class="string">"价格"</span> + drink.cost());</span><br><span class="line">        <span class="comment">//加一份奶(装饰器)</span></span><br><span class="line">        drink = <span class="keyword">new</span> Milk(drink);</span><br><span class="line">        System.out.println(drink.getDescription() + <span class="string">"价格"</span> + drink.cost());</span><br><span class="line">        <span class="comment">//加一份糖</span></span><br><span class="line">        drink = <span class="keyword">new</span> Sugar(drink);</span><br><span class="line">        System.out.println(drink.getDescription() + <span class="string">"价格"</span> + drink.cost());</span><br><span class="line">        <span class="comment">//再加一份糖</span></span><br><span class="line">        drink = <span class="keyword">new</span> Sugar(drink);</span><br><span class="line">        System.out.println(drink.getDescription() + <span class="string">"价格"</span> + drink.cost());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>运行结果:  </p>
+<blockquote>
+<p>coffee价格10.0<br>coffee milk价格13.0<br>coffee milk sugar价格14.0<br>coffee milk sugar sugar价格15.0</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://sherwinxie.xyz/design/责任链模式总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="SherwinX">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="谢玮の技术Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/design/责任链模式总结/" itemprop="url">责任链模式总结</a></h1>
         
 
         <div class="post-meta">
@@ -429,7 +635,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://sherwinxie.xyz/代理模式总结/">
+    <link itemprop="mainEntityOfPage" href="http://sherwinxie.xyz/design/OODandOOP/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="SherwinX">
@@ -438,7 +644,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="谢玮のBlog">
+      <meta itemprop="name" content="谢玮の技术Blog">
     </span>
 
     
@@ -448,7 +654,239 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/代理模式总结/" itemprop="url">代理模式总结</a></h1>
+                <a class="post-title-link" href="/design/OODandOOP/" itemprop="url">面向对象设计原则及常见模式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-02T00:00:00+08:00">
+                2018-05-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/设计模式/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="面向对象编程-OOP-三特性"><a href="#面向对象编程-OOP-三特性" class="headerlink" title="面向对象编程(OOP)三特性"></a>面向对象编程(OOP)三特性</h2><ul>
+<li>封装(Encapsulation)</li>
+<li>继承(Inheritance)</li>
+<li>多态(Polymorphism)</li>
+</ul>
+<p>其实还有一个特性叫 抽象(Abstraction)</p>
+<h4 id="这里主要说说多态-前提条件："><a href="#这里主要说说多态-前提条件：" class="headerlink" title="这里主要说说多态 前提条件："></a>这里主要说说多态 前提条件：</h4><ul>
+<li>1.要有继承关系</li>
+<li>2.子类要重写父类的方法</li>
+<li>3.父类引用指向子类对象</li>
+</ul>
+<h4 id="多态的动态绑定-也叫延迟绑定"><a href="#多态的动态绑定-也叫延迟绑定" class="headerlink" title="多态的动态绑定(也叫延迟绑定)"></a>多态的动态绑定(也叫延迟绑定)</h4><p>方法的动态绑定是指，在程序运行期间判断对象变量所引用的对象的实际类型，根据其实际类型调用相应的方法。</p>
+<h4 id="多态的向上转型"><a href="#多态的向上转型" class="headerlink" title="多态的向上转型"></a>多态的向上转型</h4><p>多态的向上转型只能访问父类中声明的成员</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Animal animal = <span class="keyword">new</span> Cat(<span class="string">"Luck"</span>,<span class="string">"gray"</span>);<span class="comment">// 向上转型 animal只能访问父类的成员</span></span><br></pre></td></tr></table></figure>
+<h4 id="多态的向下转型"><a href="#多态的向下转型" class="headerlink" title="多态的向下转型"></a>多态的向下转型</h4><p>多态的缺点是不能直接使用子类特有的成员属性和子类特有的成员方法，解决方案是强制向下转型。</p>
+<p>多态的魅力在于，通过强制向下转型,多态的缺点将会变成其灵活的优点。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cat animalCat = (Cat)animal; <span class="comment">// 强制向下转型 animalCat就可以访问子类的成员</span></span><br></pre></td></tr></table></figure></p>
+<p>animalCat就指向最开始堆内存中创建的Cat对象了，减少了多余对象的创建，不用为了使用某个子类方法又去重新在Heap中开辟一个新的子类对象。根据里氏替换原则，子类就可以替换其父类。</p>
+<h2 id="OOD的七大设计原则-（SOLID-Demeter-Composite）"><a href="#OOD的七大设计原则-（SOLID-Demeter-Composite）" class="headerlink" title="OOD的七大设计原则 （SOLID + Demeter + Composite）"></a>OOD的七大设计原则 （SOLID + Demeter + Composite）</h2><h4 id="1-单一职责原则（Single-Responsibility-Principle）"><a href="#1-单一职责原则（Single-Responsibility-Principle）" class="headerlink" title="1. 单一职责原则（Single Responsibility Principle）"></a>1. 单一职责原则（Single Responsibility Principle）</h4><p>核心：解耦和增强内聚性（高内聚，低耦合）</p>
+<p>每一个类最好专注于做一件事情和仅有一个引起它变化的原因，通常意义下的单一职责，就是指只有一种单一功能，多个职责耦合在一起，会影响复用性，不要为类实现过多的功能点，以保证实体只有一个引起它变化的原因。</p>
+<h4 id="2-开闭原则（Open-Close-Principle）"><a href="#2-开闭原则（Open-Close-Principle）" class="headerlink" title="2. 开闭原则（Open Close Principle）"></a>2. 开闭原则（Open Close Principle）</h4><p>面向扩展开放，面向修改关闭。</p>
+<h4 id="3-里氏替换原则（Liskov-Substitution-Principle）"><a href="#3-里氏替换原则（Liskov-Substitution-Principle）" class="headerlink" title="3. 里氏替换原则（Liskov Substitution Principle）"></a>3. 里氏替换原则（Liskov Substitution Principle）</h4><p>核心:子类必须能够替换其父类。</p>
+<p>这一思想体现为对继承机制的约束规范，只有子类能够替换基类时，才能保证系统在运行期内识别子类，这是保证继承复用的基础。在父类和子类的具体行为中，必须严格把握继承层次中的关系和特征，将基类替换为子类，程序的行为不会发生任何变化。同时，这一约束反过来则是不成立的，子类可以替换基类，但是基类不一定能替换子类。</p>
+<h4 id="4-接口隔离原则（Interface-Segregation-Principle）"><a href="#4-接口隔离原则（Interface-Segregation-Principle）" class="headerlink" title="4. 接口隔离原则（Interface Segregation Principle）"></a>4. 接口隔离原则（Interface Segregation Principle）</h4><p>接口隔离有两种定义：</p>
+<ul>
+<li>客户端不应该依赖它不需要的接口 </li>
+<li>类间的依赖关系应该建立在最小的接口上，即要求接口细化，接口纯洁。</li>
+</ul>
+<p>其核心思想是：使用多个小而细化的接口，而不要使用一个大的总接口。接口虽然要尽量小，但是小也是有限度的，不能违背单一职责原则。</p>
+<p>实际开发中注意：</p>
+<ul>
+<li>一个接口只服务于一个子模块或业务逻辑</li>
+<li>通过业务逻辑压缩接口中的public方法，接口要不断的精简，以达到接口不断完善</li>
+<li>已经被污染的接口，尽量去修改，若变更的风险较大，则采用适配器进行转化处理</li>
+</ul>
+<h4 id="5-依赖倒置原则（Dependence-Inversion-Principle）"><a href="#5-依赖倒置原则（Dependence-Inversion-Principle）" class="headerlink" title="5. 依赖倒置原则（Dependence Inversion Principle）"></a>5. 依赖倒置原则（Dependence Inversion Principle）</h4><p>依赖倒置原则(Dependence Inversion Principle ,DIP)定义如下：</p>
+<p>High level modules should not depend upon low level modules,Both should depend upon abstractions.Abstractions should not depend upon details.Details should depend upon abstracts.</p>
+<p>翻译过来为：</p>
+<ul>
+<li>高层模块不应该依赖低层模块，两者都应该依赖抽象</li>
+<li>抽象不应该依赖细节 </li>
+<li>细节应该依赖抽象</li>
+</ul>
+<p>也可以说高层模块，低层模块，细节都应该依赖抽象，这样做的好处是松耦合，高内聚，扩展灵活性高</p>
+<p>依赖倒置原则在java语言中，表现是：</p>
+<ul>
+<li>模块间的依赖通过抽象发生，实现类之间不发生直接的依赖关系，其依赖关系是通过接口或抽象类产生的。</li>
+<li>接口或抽象类不依赖实现类</li>
+<li>实现类依赖接口或抽象类</li>
+</ul>
+<h4 id="6-迪米特法则（Law-Of-Demeter）"><a href="#6-迪米特法则（Law-Of-Demeter）" class="headerlink" title="6. 迪米特法则（Law Of Demeter）"></a>6. 迪米特法则（Law Of Demeter）</h4><p>又叫最少知道原则，一个类对自己依赖的类知道的越少越好也就是一个对象就尽可能少的去了解其它对象，从而实现松耦合。也就是说，对于被依赖的类来说，无论逻辑多么复杂，都尽量地的将逻辑封装在类的内部，对外除了提供的public方法，不对外泄漏任何信息。</p>
+<p>迪米特法则的简单定义：只与直接的朋友通信。</p>
+<p>解释一下什么是直接的朋友：每个对象都会与其他对象有耦合关系，只要两个对象之间有耦合关系，我们就说这两个对象之间是朋友关系。耦合的方式很多，依赖、关联、组合、聚合等。其中，当前对象本身（this）、成员变量、以参数形式传入当前对象方法中的对象、方法返回值中的类，当前对象创建的对象为直接的朋友。</p>
+<p>使用总结：</p>
+<ul>
+<li>在类的划分上，应当尽量创建松耦合的类，类之间的耦合度越低，就越有利于复用，一个处在松耦合中的类一旦被修改，不会对关联的类造成太大影响；</li>
+<li>在类的结构设计上，每一个类都应当尽量降低其成员变量和成员函数的访问权限；</li>
+<li>在类的设计上，只要有可能，一个类型应当设计成不变类；</li>
+<li>在对其他类的引用上，一个对象对其他对象的引用应当降到最低。</li>
+</ul>
+<h4 id="7-组合-聚合复用原则（Composite-Aggregate-Reuse-Principle-CARP）"><a href="#7-组合-聚合复用原则（Composite-Aggregate-Reuse-Principle-CARP）" class="headerlink" title="7. 组合/聚合复用原则（Composite/Aggregate Reuse Principle CARP）"></a>7. 组合/聚合复用原则（Composite/Aggregate Reuse Principle CARP）</h4><p>尽量使用组合/聚合达到复用，尽量少用继承。使用原则：一个类中有另一个类的对象。</p>
+<p>子类是父类的一个特殊种类，而不是超类的一个角色，也就是区分“Has-A”和“Is-A”.只有“Is-A”关系才符合继承关系，“Has-A”关系应当使用聚合来描述。</p>
+<h2 id="OOP设计模式："><a href="#OOP设计模式：" class="headerlink" title="OOP设计模式："></a>OOP设计模式：</h2><h3 id="设计模式是什么"><a href="#设计模式是什么" class="headerlink" title="设计模式是什么?"></a>设计模式是什么?</h3><p>简单来说，设计模式是一种利用OOP的封闭、继承和多态三大特性，同时在遵循七大设计原则：单一职责原则、开闭原则、里氏替换原则、迪米特法则、依赖倒置原则、接口隔离原则及合成/聚合复用原则的前提下，被总结出来的经过反复实践并被多数人知晓且经过分类和设计的可重用的软件设计方式，设计模式远不止Gof提出的23种。</p>
+<h3 id="为什么学设计模式"><a href="#为什么学设计模式" class="headerlink" title="为什么学设计模式?"></a>为什么学设计模式?</h3><p>设计模式虽然都有其相对固定的实现方式，但是它的精髓是利用OOP的三大特性，遵循OOD七大原则解决工程问题。所以学习设计模式的目的不是学习设计模式的固定实现方式本身，而是其思想本身。</p>
+<h3 id="设计模式分类-How"><a href="#设计模式分类-How" class="headerlink" title="设计模式分类(How)"></a>设计模式分类(How)</h3><table>
+<thead>
+<tr>
+<th>模式类型</th>
+<th>包含</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>创建型模式<br>这些设计模式提供了一种在创建对象的同时隐藏创建逻辑的方式。</td>
+<td>工厂模式（Factory Pattern）<br>抽象工厂模式（Abstract Factory Pattern）<br>单例模式（Singleton Pattern）<br>建造者模式（Builder Pattern）<br>原型模式（Prototype Pattern）</td>
+</tr>
+<tr>
+<td>结构型模式<br>这些设计模式关注类和对象的组合。</td>
+<td>适配器模式（Adapter Pattern）<br>桥接模式（Bridge Pattern）<br>过滤器模式（Filter、Criteria Pattern）<br>组合模式（Composite Pattern）<br>装饰器模式（Decorator Pattern）<br>外观模式（Facade Pattern）<br>享元模式（Flyweight Pattern）<br>代理模式（Proxy Pattern）</td>
+</tr>
+<tr>
+<td>行为型模式<br>这些设计模式特别关注对象之间的通信。</td>
+<td>责任链模式（Chain of Responsibility Pattern）<br>命令模式（Command Pattern）<br>解释器模式（Interpreter Pattern）<br>迭代器模式（Iterator Pattern）<br>中介者模式（Mediator Pattern）<br>备忘录模式（Memento Pattern）<br>观察者模式（Observer Pattern）<br>状态模式（State Pattern）<br>空对象模式（Null Object Pattern）<br>策略模式（Strategy Pattern）<br>模板模式（Template Pattern）<br>访问者模式（Visitor Pattern）</td>
+</tr>
+</tbody>
+</table>
+<h4 id="工厂模式（Factory-Pattern）"><a href="#工厂模式（Factory-Pattern）" class="headerlink" title="工厂模式（Factory Pattern）"></a>工厂模式（Factory Pattern）</h4><p><a href="https://sherwinxie.xyz/design/工厂模式总结/">静态工厂/工厂方法/抽象工厂设计模式</a></p>
+<h4 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h4><p><a href="https://sherwinxie.xyz/design/单例模式总结/">单例模式</a></p>
+<h4 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a>代理模式</h4><p><a href="https://sherwinxie.xyz/design/代理模式总结/">静态代理/动态代理</a></p>
+<h4 id="责任链"><a href="#责任链" class="headerlink" title="责任链"></a>责任链</h4><p><a href="https://sherwinxie.xyz/design/责任链模式总结/">责任链设计模式</a></p>
+<h4 id="装饰模式"><a href="#装饰模式" class="headerlink" title="装饰模式"></a>装饰模式</h4><p><a href="https://sherwinxie.xyz/design/装饰器模式总结/">装饰模式</a></p>
+<h4 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h4><p><a href="https://sherwinxie.xyz/design/工厂模式总结/">观察者模式</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://sherwinxie.xyz/design/代理模式总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="SherwinX">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="谢玮の技术Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/design/代理模式总结/" itemprop="url">代理模式总结</a></h1>
         
 
         <div class="post-meta">
@@ -634,7 +1072,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="谢玮のBlog">
+      <meta itemprop="name" content="谢玮の技术Blog">
     </span>
 
     
@@ -851,7 +1289,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://sherwinxie.xyz/单例模式总结/">
+    <link itemprop="mainEntityOfPage" href="http://sherwinxie.xyz/design/单例模式总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="SherwinX">
@@ -860,7 +1298,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="谢玮のBlog">
+      <meta itemprop="name" content="谢玮の技术Blog">
     </span>
 
     
@@ -870,7 +1308,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/单例模式总结/" itemprop="url">单例模式总结</a></h1>
+                <a class="post-title-link" href="/design/单例模式总结/" itemprop="url">单例模式总结</a></h1>
         
 
         <div class="post-meta">
@@ -1030,7 +1468,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://sherwinxie.xyz/工厂模式总结/">
+    <link itemprop="mainEntityOfPage" href="http://sherwinxie.xyz/design/工厂模式总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="SherwinX">
@@ -1039,7 +1477,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="谢玮のBlog">
+      <meta itemprop="name" content="谢玮の技术Blog">
     </span>
 
     
@@ -1049,7 +1487,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/工厂模式总结/" itemprop="url">工厂模式总结</a></h1>
+                <a class="post-title-link" href="/design/工厂模式总结/" itemprop="url">工厂模式总结</a></h1>
         
 
         <div class="post-meta">
@@ -1196,7 +1634,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://sherwinxie.xyz/OODandOOP/">
+    <link itemprop="mainEntityOfPage" href="http://sherwinxie.xyz/design/适配器模式总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="SherwinX">
@@ -1205,7 +1643,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="谢玮のBlog">
+      <meta itemprop="name" content="谢玮の技术Blog">
     </span>
 
     
@@ -1215,7 +1653,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/OODandOOP/" itemprop="url">面向对象设计原则及常见模式</a></h1>
+                <a class="post-title-link" href="/design/适配器模式总结/" itemprop="url">适配器模式总结</a></h1>
         
 
         <div class="post-meta">
@@ -1289,97 +1727,55 @@
       
         
           
-            <h2 id="面向对象编程-OOP-三特性"><a href="#面向对象编程-OOP-三特性" class="headerlink" title="面向对象编程(OOP)三特性"></a>面向对象编程(OOP)三特性</h2><ul>
-<li>封装(Encapsulation)</li>
-<li>继承(Inheritance)</li>
-<li>多态(Polymorphism)</li>
+            <h2 id="什么是适配器模式？"><a href="#什么是适配器模式？" class="headerlink" title="什么是适配器模式？"></a>什么是适配器模式？</h2><h3 id="适配器模式（Adapter-Pattern）"><a href="#适配器模式（Adapter-Pattern）" class="headerlink" title="适配器模式（Adapter Pattern）"></a>适配器模式（Adapter Pattern）</h3><p>定义：将一个类的接口转换成客户(需要调用我们代码的对象)希望的另一个目标接口(Target)。Adapter模式使得原本由于接口不兼容而不能一起工作的那些类通过适配器可以一起工作。</p>
+<p>这种类型的设计模式属于结构型模式，适配器可以结合了两个独立接口的功能。</p>
+<p>举个现实的例子，当我们给手机充电时，由于手机充电口是5V，而插座提供的是220V交流电，因此我们通常需要使用充电器将220V交流电转换成可供手机充电用的5V直流电，这个充电器就是一个适配器，220V是一个接口的方法，5V充电方法是客户（即手机）希望的另一个目标接口的扩展方法。</p>
+<h3 id="适配器模式有三种"><a href="#适配器模式有三种" class="headerlink" title="适配器模式有三种:"></a>适配器模式有三种:</h3><ul>
+<li>类适配器-通过Java单继承，用于单一源的适配，由于它的源单一，代码实现不用写选择逻辑，很清晰。</li>
+<li>对象适配器-通过使用Java组合和适配器包含源对象。可用于多源的适配，弥补了类适配模式的不足，使得原本用类适配模式需要写很多适配器的情况不复存在，弱点是，由于源的数目可以较多，所以具体的实现条件选择分支比较多，不太清晰。</li>
+<li>默认适配器模式(Default Adapter Pattern) 当你实现一个接口却只想重写其部分方法，通过抽象类当适配器实现。</li>
 </ul>
-<p>其实还有一个特性叫 抽象(Abstraction)</p>
-<h4 id="这里主要说说多态-前提条件："><a href="#这里主要说说多态-前提条件：" class="headerlink" title="这里主要说说多态 前提条件："></a>这里主要说说多态 前提条件：</h4><ul>
-<li>1.要有继承关系</li>
-<li>2.子类要重写父类的方法</li>
-<li>3.父类引用指向子类对象</li>
+<h3 id="适配器的三个角色"><a href="#适配器的三个角色" class="headerlink" title="适配器的三个角色"></a>适配器的三个角色</h3><ul>
+<li>Source源角色（Adaptee），现有的功能。</li>
+<li>Destination目标角色（Target），目标接口，要添加的功能。</li>
+<li>Adapter适配器角色（Adapter），核心是实现Target接口, 继承或组合Adaptee(对应类适配器或对象适配器)，协调Source和Destination，使两者能够协同工作。</li>
 </ul>
-<h4 id="多态的动态绑定-也叫延迟绑定"><a href="#多态的动态绑定-也叫延迟绑定" class="headerlink" title="多态的动态绑定(也叫延迟绑定)"></a>多态的动态绑定(也叫延迟绑定)</h4><p>方法的动态绑定是指，在程序运行期间判断对象变量所引用的对象的实际类型，根据其实际类型调用相应的方法。</p>
-<h4 id="多态的向上转型"><a href="#多态的向上转型" class="headerlink" title="多态的向上转型"></a>多态的向上转型</h4><p>多态的向上转型只能访问父类中声明的成员</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Animal animal = <span class="keyword">new</span> Cat(<span class="string">"Luck"</span>,<span class="string">"gray"</span>);<span class="comment">// 向上转型 animal只能访问父类的成员</span></span><br></pre></td></tr></table></figure>
-<h4 id="多态的向下转型"><a href="#多态的向下转型" class="headerlink" title="多态的向下转型"></a>多态的向下转型</h4><p>多态的缺点是不能直接使用子类特有的成员属性和子类特有的成员方法，解决方案是强制向下转型。</p>
-<p>多态的魅力在于，通过强制向下转型,多态的缺点将会变成其灵活的优点。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cat animalCat = (Cat)animal; <span class="comment">// 强制向下转型 animalCat就可以访问子类的成员</span></span><br></pre></td></tr></table></figure></p>
-<p>animalCat就指向最开始堆内存中创建的Cat对象了，减少了多余对象的创建，不用为了使用某个子类方法又去重新在Heap中开辟一个新的子类对象。根据里氏替换原则，子类就可以替换其父类。</p>
-<h2 id="OOD的七大设计原则-（SOLID-Demeter-Composite）"><a href="#OOD的七大设计原则-（SOLID-Demeter-Composite）" class="headerlink" title="OOD的七大设计原则 （SOLID + Demeter + Composite）"></a>OOD的七大设计原则 （SOLID + Demeter + Composite）</h2><h4 id="1-单一职责原则（Single-Responsibility-Principle）"><a href="#1-单一职责原则（Single-Responsibility-Principle）" class="headerlink" title="1. 单一职责原则（Single Responsibility Principle）"></a>1. 单一职责原则（Single Responsibility Principle）</h4><p>核心：解耦和增强内聚性（高内聚，低耦合）</p>
-<p>每一个类最好专注于做一件事情和仅有一个引起它变化的原因，通常意义下的单一职责，就是指只有一种单一功能，多个职责耦合在一起，会影响复用性，不要为类实现过多的功能点，以保证实体只有一个引起它变化的原因。</p>
-<h4 id="2-开闭原则（Open-Close-Principle）"><a href="#2-开闭原则（Open-Close-Principle）" class="headerlink" title="2. 开闭原则（Open Close Principle）"></a>2. 开闭原则（Open Close Principle）</h4><p>面向扩展开放，面向修改关闭。</p>
-<h4 id="3-里氏替换原则（Liskov-Substitution-Principle）"><a href="#3-里氏替换原则（Liskov-Substitution-Principle）" class="headerlink" title="3. 里氏替换原则（Liskov Substitution Principle）"></a>3. 里氏替换原则（Liskov Substitution Principle）</h4><p>核心:子类必须能够替换其父类。</p>
-<p>这一思想体现为对继承机制的约束规范，只有子类能够替换基类时，才能保证系统在运行期内识别子类，这是保证继承复用的基础。在父类和子类的具体行为中，必须严格把握继承层次中的关系和特征，将基类替换为子类，程序的行为不会发生任何变化。同时，这一约束反过来则是不成立的，子类可以替换基类，但是基类不一定能替换子类。</p>
-<h4 id="4-接口隔离原则（Interface-Segregation-Principle）"><a href="#4-接口隔离原则（Interface-Segregation-Principle）" class="headerlink" title="4. 接口隔离原则（Interface Segregation Principle）"></a>4. 接口隔离原则（Interface Segregation Principle）</h4><p>接口隔离有两种定义：</p>
+<h3 id="适配器模式应用场景"><a href="#适配器模式应用场景" class="headerlink" title="适配器模式应用场景"></a>适配器模式应用场景</h3><p>在开发中，也就是系统的数据和行为都正确，但接口不相符时，我们应该考虑用适配器，目的是使控制范围之外的一个原有对象与某个接口匹配。适配器模式主要应用于希望复用一些现存的类，但是接口又与复用环境要求不一致的情况。比如在需要对早期代码复用一些功能等应用上很有实际价值。适用场景大致包含三类：</p>
+<ol>
+<li><p>已经存在的类的接口不符合我们的需求；这时创建一个适配器就能间接去访问这个类中的方法。</p>
+</li>
+<li><p>我们有一个类，想将其设计为可复用的类（可被多处访问），我们可以创建适配器来将这个类来适配协同工作其他没有提供合适接口的类。</p>
+</li>
+<li><p>想要使用接口中的某个或某些方法，但是接口中有太多方法，我们要使用时必须实现接口并实现其中的所有方法，可以使用抽象类来实现接口，并不对方法进行实现（仅置空），然后我们再继承这个抽象类来通过重写想用的方法的方式来实现。</p>
+</li>
+</ol>
+<h2 id="适配器模式应用"><a href="#适配器模式应用" class="headerlink" title="适配器模式应用"></a>适配器模式应用</h2><p>我们需要一个类A（源角色）来实现接口B（目标角色），但是类A并没有实现接口B中的所有方法，而类A是不让改动的，这时我们可以创建一个类C（适配器角色），它继承类A并实现接口B，这个类C就是一个适配器。</p>
+<h4 id="类适配器"><a href="#类适配器" class="headerlink" title="类适配器"></a>类适配器</h4><p>源角色:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AI</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> id;</span><br><span class="line">  <span class="keyword">private</span> String name;</span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 人工智能AI现在只能说英语 省略setter,getter方法..</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sayEnglish</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"AI can say English!"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>目标角色: 让人工智能说中文和法语<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Target_AI</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">sayEnglish</span><span class="params">()</span></span>;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">sayFrench</span><span class="params">()</span></span>;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">sayChinese</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>类 适配器角色:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 扩展源角色AI类，实现目标角色，从而使得目标角</span></span><br><span class="line"><span class="comment"> * 接口扩展时，不用改动源角色，只要改动其适配器 </span></span><br><span class="line"><span class="comment"> * 类适配器,因为继承了Person,而Java中只能单继承,所以这个适配器只为person这一个源角色类服务</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Adapter_AI</span> <span class="keyword">extends</span> <span class="title">AI</span> <span class="keyword">implements</span> <span class="title">Target_AI</span></span>&#123;</span><br><span class="line"> </span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sayFrench</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"AI can say French!"</span>);</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sayChinese</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"AI can say Chinese!"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>客户端测试：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>&#123; </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    Target_AI ai = <span class="keyword">new</span> Adapter_AI();</span><br><span class="line"></span><br><span class="line">    ai.sayEnglish();</span><br><span class="line">    ai.sayChinese();<span class="comment">//AI也可以说汉语了Mandarin</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="对象适配器模式"><a href="#对象适配器模式" class="headerlink" title="对象适配器模式"></a>对象适配器模式</h4><p>测试类同上</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 对象适配器,与类适配器不同的是:对象适配器可以适配多个源到目标</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Adapter_AI</span> <span class="keyword">implements</span> <span class="title">Target_AI</span></span>&#123;  <span class="comment">//仅仅实现目标接口</span></span><br><span class="line">  <span class="keyword">private</span> AI ai;</span><br><span class="line">  <span class="comment">//在构造函数中将Adaptee类Person传递进来</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Adapter_AI</span><span class="params">(AI ai)</span></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.ai = ai;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//实现目标接口中的sayEnglish()--调用Adaptee中的sayEnglish()</span></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sayEnglish</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.ai.sayEnglish();</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//实现接口中的其它方法</span></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sayFrench</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"ai can say French!"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sayChinese</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"ai can say Chinese!"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="默认适配器"><a href="#默认适配器" class="headerlink" title="默认适配器"></a>默认适配器</h4><p>这种模式的核心在于：当你想实现一个接口但又不想实现所有接口方法，只想去实现一部分方法时，就用中默认的适配器模式，他的方法是在接口和具体实现类中添加一个抽象类，而用抽象类去空实现目标接口的所有方法。而具体的实现类只需要覆盖其需要完成的方法即可。</p>
+<p>Skill接口:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Skill</span> </span>&#123;  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">speakEnglish</span><span class="params">()</span></span>;  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">speakFrench</span><span class="params">()</span></span>;  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">speakChinese</span><span class="params">()</span></span>;  </span><br><span class="line">      </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Adapter抽象类空实现方法:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Adapter</span> <span class="keyword">implements</span> <span class="title">Skill</span></span>&#123; </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">speakChinese</span><span class="params">()</span> </span>&#123;&#125; </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">speakEnglish</span><span class="params">()</span> </span>&#123;&#125;  </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">speakFrench</span><span class="params">()</span> </span>&#123;&#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>具体实现类通过抽象类适配器重写部分方法:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client_AI</span> <span class="keyword">extends</span> <span class="title">Adapter</span></span>&#123;  </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">speakChinese</span><span class="params">()</span></span>&#123;  </span><br><span class="line">        System.out.println(<span class="string">"I just speak Chinese!"</span>) </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="适配器模式优缺点"><a href="#适配器模式优缺点" class="headerlink" title="适配器模式优缺点"></a>适配器模式优缺点</h2><h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h4><ol>
+<li>可以让任何两个没有关联的类一起运行。   </li>
+<li>提高了类的复用。    </li>
+<li>增加了类的透明度。 </li>
+<li>灵活性好。 </li>
+</ol>
+<p>适配器模式也是一种包装模式，它与装饰模式同样具有包装的功能，此外，对象适配器模式还具有委托的意思。总的来说，适配器模式属于补偿模式，专用来在系统后期扩展、修改时使用。</p>
+<h4 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h4><ul>
+<li>过多的使用适配器，会让系统非常零乱，不易整体进行把握。<br>比如，明明看到调用的是 A 接口，其实内部被适配成了 B 接口的实现，一个系统如果太多出现这种情况，无异于一场灾难。因此如果不是很有必要，可以不使用适配器，而是直接对系统进行重构。</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>可以说Source（源）的存在形式决定了适配器的名字：</p>
 <ul>
-<li>客户端不应该依赖它不需要的接口 </li>
-<li>类间的依赖关系应该建立在最小的接口上，即要求接口细化，接口纯洁。</li>
+<li>类适配器就是继承(is a)Source类</li>
+<li>对象适配器就是持有（has a）Source类</li>
+<li>默认适配器就是实现Source接口的部分方法。</li>
 </ul>
-<p>其核心思想是：使用多个小而细化的接口，而不要使用一个大的总接口。接口虽然要尽量小，但是小也是有限度的，不能违背单一职责原则。</p>
-<p>实际开发中注意：</p>
-<ul>
-<li>一个接口只服务于一个子模块或业务逻辑</li>
-<li>通过业务逻辑压缩接口中的public方法，接口要不断的精简，以达到接口不断完善</li>
-<li>已经被污染的接口，尽量去修改，若变更的风险较大，则采用适配器进行转化处理</li>
-</ul>
-<h4 id="5-依赖倒置原则（Dependence-Inversion-Principle）"><a href="#5-依赖倒置原则（Dependence-Inversion-Principle）" class="headerlink" title="5. 依赖倒置原则（Dependence Inversion Principle）"></a>5. 依赖倒置原则（Dependence Inversion Principle）</h4><p>依赖倒置原则(Dependence Inversion Principle ,DIP)定义如下：</p>
-<p>High level modules should not depend upon low level modules,Both should depend upon abstractions.Abstractions should not depend upon details.Details should depend upon abstracts.</p>
-<p>翻译过来为：</p>
-<ul>
-<li>高层模块不应该依赖低层模块，两者都应该依赖抽象</li>
-<li>抽象不应该依赖细节 </li>
-<li>细节应该依赖抽象</li>
-</ul>
-<p>也可以说高层模块，低层模块，细节都应该依赖抽象，这样做的好处是松耦合，高内聚，扩展灵活性高</p>
-<p>依赖倒置原则在java语言中，表现是：</p>
-<ul>
-<li>模块间的依赖通过抽象发生，实现类之间不发生直接的依赖关系，其依赖关系是通过接口或抽象类产生的。</li>
-<li>接口或抽象类不依赖实现类</li>
-<li>实现类依赖接口或抽象类</li>
-</ul>
-<h4 id="6-迪米特法则（Law-Of-Demeter）"><a href="#6-迪米特法则（Law-Of-Demeter）" class="headerlink" title="6. 迪米特法则（Law Of Demeter）"></a>6. 迪米特法则（Law Of Demeter）</h4><p>又叫最少知道原则，一个类对自己依赖的类知道的越少越好也就是一个对象就尽可能少的去了解其它对象，从而实现松耦合。也就是说，对于被依赖的类来说，无论逻辑多么复杂，都尽量地的将逻辑封装在类的内部，对外除了提供的public方法，不对外泄漏任何信息。</p>
-<p>迪米特法则的简单定义：只与直接的朋友通信。</p>
-<p>解释一下什么是直接的朋友：每个对象都会与其他对象有耦合关系，只要两个对象之间有耦合关系，我们就说这两个对象之间是朋友关系。耦合的方式很多，依赖、关联、组合、聚合等。其中，当前对象本身（this）、成员变量、以参数形式传入当前对象方法中的对象、方法返回值中的类，当前对象创建的对象为直接的朋友。</p>
-<p>使用总结：</p>
-<ul>
-<li>在类的划分上，应当尽量创建松耦合的类，类之间的耦合度越低，就越有利于复用，一个处在松耦合中的类一旦被修改，不会对关联的类造成太大影响；</li>
-<li>在类的结构设计上，每一个类都应当尽量降低其成员变量和成员函数的访问权限；</li>
-<li>在类的设计上，只要有可能，一个类型应当设计成不变类；</li>
-<li>在对其他类的引用上，一个对象对其他对象的引用应当降到最低。</li>
-</ul>
-<h4 id="7-组合-聚合复用原则（Composite-Aggregate-Reuse-Principle-CARP）"><a href="#7-组合-聚合复用原则（Composite-Aggregate-Reuse-Principle-CARP）" class="headerlink" title="7. 组合/聚合复用原则（Composite/Aggregate Reuse Principle CARP）"></a>7. 组合/聚合复用原则（Composite/Aggregate Reuse Principle CARP）</h4><p>尽量使用组合/聚合达到复用，尽量少用继承。使用原则：一个类中有另一个类的对象。</p>
-<p>子类是父类的一个特殊种类，而不是超类的一个角色，也就是区分“Has-A”和“Is-A”.只有“Is-A”关系才符合继承关系，“Has-A”关系应当使用聚合来描述。</p>
-<h2 id="OOP设计模式："><a href="#OOP设计模式：" class="headerlink" title="OOP设计模式："></a>OOP设计模式：</h2><h3 id="设计模式是什么"><a href="#设计模式是什么" class="headerlink" title="设计模式是什么?"></a>设计模式是什么?</h3><p>简单来说，设计模式是一种利用OOP的封闭、继承和多态三大特性，同时在遵循七大设计原则：单一职责原则、开闭原则、里氏替换原则、迪米特法则、依赖倒置原则、接口隔离原则及合成/聚合复用原则的前提下，被总结出来的经过反复实践并被多数人知晓且经过分类和设计的可重用的软件设计方式，设计模式远不止Gof提出的23种。</p>
-<h3 id="为什么学设计模式"><a href="#为什么学设计模式" class="headerlink" title="为什么学设计模式?"></a>为什么学设计模式?</h3><p>设计模式虽然都有其相对固定的实现方式，但是它的精髓是利用OOP的三大特性，遵循OOD七大原则解决工程问题。所以学习设计模式的目的不是学习设计模式的固定实现方式本身，而是其思想本身。</p>
-<h3 id="设计模式分类-How"><a href="#设计模式分类-How" class="headerlink" title="设计模式分类(How)"></a>设计模式分类(How)</h3><table>
-<thead>
-<tr>
-<th>模式类型</th>
-<th>包含</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>创建型模式<br>这些设计模式提供了一种在创建对象的同时隐藏创建逻辑的方式。</td>
-<td>工厂模式（Factory Pattern）<br>抽象工厂模式（Abstract Factory Pattern）<br>单例模式（Singleton Pattern）<br>建造者模式（Builder Pattern）<br>原型模式（Prototype Pattern）</td>
-</tr>
-<tr>
-<td>结构型模式<br>这些设计模式关注类和对象的组合。</td>
-<td>适配器模式（Adapter Pattern）<br>桥接模式（Bridge Pattern）<br>过滤器模式（Filter、Criteria Pattern）<br>组合模式（Composite Pattern）<br>装饰器模式（Decorator Pattern）<br>外观模式（Facade Pattern）<br>享元模式（Flyweight Pattern）<br>代理模式（Proxy Pattern）</td>
-</tr>
-<tr>
-<td>行为型模式<br>这些设计模式特别关注对象之间的通信。</td>
-<td>责任链模式（Chain of Responsibility Pattern）<br>命令模式（Command Pattern）<br>解释器模式（Interpreter Pattern）<br>迭代器模式（Iterator Pattern）<br>中介者模式（Mediator Pattern）<br>备忘录模式（Memento Pattern）<br>观察者模式（Observer Pattern）<br>状态模式（State Pattern）<br>空对象模式（Null Object Pattern）<br>策略模式（Strategy Pattern）<br>模板模式（Template Pattern）<br>访问者模式（Visitor Pattern）</td>
-</tr>
-</tbody>
-</table>
-<h4 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h4><p><a href="">工厂设计模式</a></p>
-<h4 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h4><p><a href="">单例模式</a></p>
-<h4 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h4><p><a href="">动态规划设计模式</a></p>
-<h4 id="责任链"><a href="#责任链" class="headerlink" title="责任链"></a>责任链</h4><p><a href="">责任链设计模式</a></p>
-<h4 id="装饰模式"><a href="#装饰模式" class="headerlink" title="装饰模式"></a>装饰模式</h4><p><a href="">装饰模式</a></p>
-<h4 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h4><p><a href="">观察者模式</a></p>
 
           
         
@@ -1437,7 +1833,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="谢玮のBlog">
+      <meta itemprop="name" content="谢玮の技术Blog">
     </span>
 
     
@@ -1692,7 +2088,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="谢玮のBlog">
+      <meta itemprop="name" content="谢玮の技术Blog">
     </span>
 
     
@@ -1842,401 +2238,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://sherwinxie.xyz/微信小程序入门/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="SherwinX">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="谢玮のBlog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/微信小程序入门/" itemprop="url">一天入门微信小程序（总结）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-05T23:54:22+08:00">
-                2018-04-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/技术/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="微信小程序入门笔记-Part-1"><a href="#微信小程序入门笔记-Part-1" class="headerlink" title="微信小程序入门笔记 Part 1"></a>微信小程序入门笔记 Part 1</h1><h2 id="什么是微信小程序（What？）"><a href="#什么是微信小程序（What？）" class="headerlink" title="什么是微信小程序（What？）"></a>什么是微信小程序（What？）</h2><p>微信小程序依赖于微信环境，微信中搜索即用，并且不用像安装（当然也就没有卸载一说），在IOS、Andorid以及WindowsPhone系统中都可以跨平台使用。</p>
-<h2 id="为什么玩微信小程序（Why？）"><a href="#为什么玩微信小程序（Why？）" class="headerlink" title="为什么玩微信小程序（Why？）"></a>为什么玩微信小程序（Why？）</h2><p>作为后端开发者，对前端的知识有个基本的了解和掌握也是至关重要的，前后端本是一张纸，两面一体，全栈是后端进阶的必然。</p>
-<p>另外是对新事物的好奇以及探索精神，作为个人也可以很方便的开发以及上线一个属于自己的小程序，既学既用能够快速的看到所学效果。</p>
-<ul>
-<li>最好熟悉Html+CSS+JS+Json等前端基础知识。</li>
-<li>最好通过跟着优质资源课做一个微信小程序项目掌握。</li>
-</ul>
-<h2 id="怎么开发自己的微信小程序（How？）"><a href="#怎么开发自己的微信小程序（How？）" class="headerlink" title="怎么开发自己的微信小程序（How？）"></a>怎么开发自己的微信小程序（How？）</h2><p>大致流程：下载IDE-&gt;熟悉开发环境-&gt;看官方文档-&gt;看资源视频做小项目-&gt;搜索解决问题-&gt;上传代码-&gt;提交审核-&gt;上线小程序。</p>
-<h3 id="微信开发的IDE和资料"><a href="#微信开发的IDE和资料" class="headerlink" title="微信开发的IDE和资料"></a>微信开发的IDE和资料</h3><ul>
-<li><a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html?t=2018428" target="_blank" rel="noopener">微信开发者工具</a></li>
-<li><a href="https://developers.weixin.qq.com/miniprogram/dev/" target="_blank" rel="noopener">微信开发者社区及API文档</a></li>
-<li><a href="http://www.xuetangx.com/courses/course-v1:TsinghuaX+2018032801X+2018_T1/about" target="_blank" rel="noopener">资源【THU学堂在线】</a></li>
-</ul>
-<h3 id="微信小程序的文件类型："><a href="#微信小程序的文件类型：" class="headerlink" title="微信小程序的文件类型："></a>微信小程序的文件类型：</h3><ul>
-<li>wxml（类似html 页面布局文件）</li>
-<li>wxss（类似css 样式文件）</li>
-<li>js  （页面交互）</li>
-<li>wxs （微信新开发的语言 类似js）</li>
-<li>json（Json配置）</li>
-</ul>
-<h3 id="JS-Pages-生命周期"><a href="#JS-Pages-生命周期" class="headerlink" title="JS Pages()生命周期"></a>JS Pages()生命周期</h3><p>onLoad -&gt; onShow -&gt; onReady -&gt; onHide -&gt; onUnload</p>
-<ul>
-<li><a href="https://developers.weixin.qq.com/miniprogram/dev/framework/app-service/page.html" target="_blank" rel="noopener">官方文档</a></li>
-</ul>
-<h2 id="WXSS-样式"><a href="#WXSS-样式" class="headerlink" title="WXSS 样式"></a>WXSS 样式</h2><ul>
-<li>传统布局 vs 弹性盒子布局（灵活在容器统一控制）</li>
-<li>px和rpx 相对像素 默认750rpx最大</li>
-</ul>
-<h2 id="条件渲染wx-if和hidden的选择"><a href="#条件渲染wx-if和hidden的选择" class="headerlink" title="条件渲染wx:if和hidden的选择"></a>条件渲染wx:if和hidden的选择</h2><p>当wx:if 判断为true时会动态加入元素（时间复杂大，空间复杂小）<br>而hidden属性来判断为true时只需要显示（开销小，相当于用空间换时间）</p>
-<h2 id="事件绑定bindtap-catchtap-区别"><a href="#事件绑定bindtap-catchtap-区别" class="headerlink" title="事件绑定bindtap catchtap 区别"></a>事件绑定bindtap catchtap 区别</h2><ul>
-<li>冒泡事件bindtap<br>子事件响应后响应父事件</li>
-<li>非冒泡事件catchtap<br>只捕捉子事件</li>
-</ul>
-<h2 id="CurrenTraget-和Target-区别"><a href="#CurrenTraget-和Target-区别" class="headerlink" title="CurrenTraget 和Target 区别"></a>CurrenTraget 和Target 区别</h2><p>target在事件流的目标阶段；</p>
-<p>currentTarget在事件流的捕获，目标及冒泡阶段；</p>
-<p>但事件流处于目标阶段，target与currentTarget指向一样；</p>
-<p>而当处于捕获和冒泡阶段的时候，target指向被单击的对象而currentTarget指向当前事件活动的对象。</p>
-<p>在微信小程序中也可总结为：target指向发生事件的组件，currentTarget指向绑定事件的组件。</p>
-<h2 id="wx-request-异步调用（类似JS-Ajax）"><a href="#wx-request-异步调用（类似JS-Ajax）" class="headerlink" title="wx.request 异步调用（类似JS Ajax）"></a>wx.request 异步调用（类似JS Ajax）</h2><ul>
-<li>url API接口地址</li>
-<li>nginx 代理转发</li>
-<li>success res 响应</li>
-</ul>
-<h2 id="web-server"><a href="#web-server" class="headerlink" title="web server"></a>web server</h2><p>微信小程序腾讯云服务器支持notejs和php</p>
-<ul>
-<li>express (note.js)</li>
-<li>middleware 中间件 是一个函数 req resp next</li>
-<li>Login登录API</li>
-</ul>
-<h1 id="常规状态码"><a href="#常规状态码" class="headerlink" title="常规状态码"></a>常规状态码</h1><ul>
-<li>200 成功</li>
-<li>3xx 请求成功，但需要改变请求资源的方式</li>
-<li>4xx 请求错误 eg.404 not found</li>
-<li>5xx 服务器内部错误 与客户端无关</li>
-</ul>
-<h1 id="RESTful-常规返回结果"><a href="#RESTful-常规返回结果" class="headerlink" title="RESTful 常规返回结果"></a>RESTful 常规返回结果</h1><ul>
-<li>GET:返回资源对象列表或单个资源对象</li>
-<li>POST:返回新生成的资源对象</li>
-<li>PUT:返回修改后的完整资源对象</li>
-<li>PATCH:返回被修改后的属性（局部更新）</li>
-<li>DELETE: 返回空 （状态码204 表示成功删除）</li>
-</ul>
-<h1 id="心得总结"><a href="#心得总结" class="headerlink" title="心得总结"></a>心得总结</h1><ol>
-<li>入门可以参考优质的视频项目，如THU学堂在线的调用豆瓣API的电影推荐小程序 和 基于C/S的todo小程序。</li>
-<li>入门基本使用后没有相关进阶的视频资源，应多查微信官方文档，和git clone开源项目运行和学习。</li>
-<li>提交审核，上线一个自己的小程序，命令规范为姓名+小程序，这样，家人朋友通过微信搜索你的名字时会将你的小程序一同搜出来。:）</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://sherwinxie.xyz/常见的算法思想/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="SherwinX">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="谢玮のBlog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/常见的算法思想/" itemprop="url">常见的算法思想</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-28T00:00:00+08:00">
-                2018-03-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/技术/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="1、算法特征"><a href="#1、算法特征" class="headerlink" title="1、算法特征"></a>1、算法特征</h1><p>算法的英文名称是Algorithm，这个词在1957年之前在Webster’s New World Dictionary(《韦氏新世界词典》)中还未出现，只能找到带有它的古代涵义的较老形式的“Algorism”(算术)，是指用阿拉伯数字进行算术运算的过程。在中世纪时，珠算家用算盘进行计算，而算术家用算术进行计算。<br>根据经验和发展结论得出，算法应该具有如下五个重要的特征。<br>（1）有穷性：保证执行有限步骤之后结束；</p>
-<p>（2）确切性：每一步骤都有确切的定义；</p>
-<p>（3）输入：每个算法有零个或多个输入，以刻画运算对象的初始情况，所谓零个输入是指算法本身定除了初始条件；</p>
-<p>（4）输出：每个算法有一个或多个输出，显示对输入数据加工后的结果。没有输出的算法是毫无意义的；</p>
-<p>（5）可行性：在原则上算法能够精确地运行，进行有限次运算后即可完成一种运算。</p>
-<h2 id="1-1-计算机中的算法"><a href="#1-1-计算机中的算法" class="headerlink" title="1.1 计算机中的算法"></a>1.1 计算机中的算法</h2><p>计算机中算法可分为如下两大类：</p>
-<p>（1）数值运算算法：求解数值。</p>
-<p>（2）非数值运算算法：事务管理领域。</p>
-<p>算法是计算机处理信息的本质，因为计算机程序本质上是一个算法，告诉计算机确切的步骤来执行一个指定的任务，如计算职工的薪水或打印学生的成绩单。一般地，当算法在处理信息时，数据会从输入设备读取，写入输出设备，可能保存起来以供以后使用。</p>
-<p>著名计算机科学家沃思提出了下面的公式。</p>
-<p>数据结构+算法=程序</p>
-<p>实际上，一个程序应当采用结构化程序设计方法进行程序设计，并且用某一种计算机语言来表示。因此，可以用下面的公式表示。</p>
-<p>程序=算法+数据结构+程序设计方法+语言和环境</p>
-<h1 id="2-常见的算法思想"><a href="#2-常见的算法思想" class="headerlink" title="2. 常见的算法思想"></a>2. 常见的算法思想</h1><h2 id="比较笨的-穷举-算法思想"><a href="#比较笨的-穷举-算法思想" class="headerlink" title="比较笨的 穷举 算法思想"></a>比较笨的 穷举 算法思想</h2><p>穷举法（ExhaustiveAttack method)，又称为枚举法。它是用于穷尽每一种可能的情况，效率不高，适用于没有明显规律的情况，同时又最为耗时的一种解决实际问题的算法思想。</p>
-<p>穷举法也是一种针对于密码的破译方法，比如一个四位并且全部由数字组成其密码共有10000种组合，也就是说最多我们会尝试9999次才能找到真正的密码。利用这种方法我们可以运用计算机来进行逐个推算，也就是说用我们破解任何一个密码也都只是一个时间问题，缺点数据量巨大的话会导致时间崩溃。</p>
-<p>设计思想：在可能的解空间中穷举出每一种可能的解，并对每一个可能解进行判断，从中得到问题的答案。</p>
-<h2 id="聪明一点的-递推-算法思想"><a href="#聪明一点的-递推-算法思想" class="headerlink" title="聪明一点的 递推 算法思想"></a>聪明一点的 递推 算法思想</h2><p>递推（recurrence）法，从已知到未知，从小到大。</p>
-<p>典型代表fibonacci数列递推求法（后一项等于前两项之和）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">int fibonacci(int n)&#123;</span><br><span class="line">    int fn_1 = 0;</span><br><span class="line">    int fn   = 1;</span><br><span class="line">    for(int i=0; i&lt;n; i++) &#123;</span><br><span class="line">       int t = fn</span><br><span class="line">       fn = fn + fn_1;</span><br><span class="line">       fn_1  = t;</span><br><span class="line">    &#125;</span><br><span class="line">    return fn;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="充分利用自己的-递归-算法思想"><a href="#充分利用自己的-递归-算法思想" class="headerlink" title="充分利用自己的 递归 算法思想"></a>充分利用自己的 递归 算法思想</h2><p>所谓递归（recursion）算法，就是一种直接或间接地调用原算法本身的一种算法，与递推不同的是从未知到已知，从大到小，再从小到大。</p>
-<p>　　递归算法就是在程序中不断反复调用自身来达到求解问题的方法。这里的重点是调用自身，这就要求待求解的问题能够分解为相同问题的一个子问题。这样 ，通过多次递归调用，便可以完成求解。<br>　　<br>递归调用是一个函数在它的函数体内调用它自身的函数调用方式，这种函数也称为“递归函数”。在递归函数中，主调函数又是被调函数。执行递归函数将反复调用其自身，每调用一次就进入新的一层。 </p>
-<p>函数的递归调用分两种情况：直接递归和间接递归。 </p>
-<ul>
-<li>直接递归：即在函数中调用函数本身。 </li>
-<li>间接递归：即间接地调用一个函数，如出如func_a 调用 func_b, func_b 又调用func_a。间接递归用得不多。</li>
-</ul>
-<p>递归与分治的算法思想往往是相伴而生的，它们在各类算法中使用非常频繁，应用递归和分治的算法思想有时可以设计出代码简洁且比较高效的算法来。</p>
-<p>　　在解决一些比较复杂的问题，特别是解决一些规模较大得问题时，常常将问题进行分解。具体来说，就是将一个规模较大的问题分割成规模较小的同类问题，然后将这些小问题的子问题逐个加以解决，最终也就将整个大问题解决了。这种思想称之为分治。在解决一些问题比较复杂、计算量庞大的问题时经常被用到。</p>
-<p>　　最为经典的使用分治思想设计的算法就是“折半查找算法”。折半查找算法利用了元素之间的顺序关系（有序序列），采用分而治之的策略，不断缩小问题的规模，每次都将问题的规模减小至上一次的一半。</p>
-<p>　　</p>
-<p>典型代表fibonacci数列递归求法（后一项等于前两项之和）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> public static int fibonacci(int n) &#123;</span><br><span class="line">        if (n == 1 || n == 2) &#123;     // 递归终止条件</span><br><span class="line">            return 1;      </span><br><span class="line">        &#125;</span><br><span class="line">        return fibonacci(n - 1) + fibonacci(n - 2); // 相同重复逻辑，缩小问题的规模</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="各个击破的-分治-算法思想"><a href="#各个击破的-分治-算法思想" class="headerlink" title="各个击破的 分治 算法思想"></a>各个击破的 分治 算法思想</h2><p>分治法，字面上的解释是“分而治之”，就是把一个复杂的问题分成两个或更多的相同或相似的子问题，再把子问题分成更小的子问题……直到最后子问题可以简单的直接求解，原问题的解即子问题的解的合并。这个技巧是很多高效算法的基础，如排序算法(快速排序，归并排序)，傅立叶变换(快速傅立叶变换)……</p>
-<p>设计思想：将一个难以直接解决的大问题，分割成一些规模较小的相同问题，相互独立，以便各个击破，分而治之。这自然导致递归过程的产生。分治与递归像一对孪生兄弟，经常同时应用在算法设计之中，并由此产生许多高效算法。</p>
-<h2 id="子问题联系的-动态规划-算法思想"><a href="#子问题联系的-动态规划-算法思想" class="headerlink" title="子问题联系的 动态规划 算法思想"></a>子问题联系的 动态规划 算法思想</h2><p>基本思想与分治法类似，也是将待求解的问题分解为若干个子问题（阶段），按顺序求解子阶段，前一子问题的解，为后一子问题的求解提供了有用的信息。在求解任一子问题时，列出各种可能的局部解，通过决策保留那些有可能达到最优的局部解，丢弃其他局部解。依次解决各子问题，最后一个子问题就是初始问题的解。</p>
-<p>由于动态规划解决的问题多数有重叠子问题这个特点，为减少重复计算，对每一个子问题只解一次，将其不同阶段的不同状态保存在一个二维数组中。</p>
-<p>与分治法最大的差别是：适合于用动态规划法求解的问题，经分解后得到的子问题往往不是互相独立的（即下一个子阶段的求解是建立在上一个子阶段的解的基础上，进行进一步的求解）。</p>
-<h2 id="局部最优的-贪心-算法思想"><a href="#局部最优的-贪心-算法思想" class="headerlink" title="局部最优的 贪心 算法思想"></a>局部最优的 贪心 算法思想</h2><p>所谓贪心算法是指，在对问题求解时，总是做出在当前看来是最好的选择。也就是说，不从整体最优上加以考虑，他所做出的仅是在某种意义上的局部最优解。</p>
-<p>贪心算法没有固定的算法框架，算法设计的关键是贪心策略的选择。必须注意的是，贪心算法不是对所有问题都能得到整体最优解，选择的贪心策略必须具备无后效性，即某个状态以后的过程不会影响以前的状态，只与当前状态有关。</p>
-<p>有点像alphaGo下围棋：</p>
-<p>从问题的某一初始解出发；</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">while （能朝给定总目标胜率前进一步）</span><br><span class="line">    &#123; </span><br><span class="line">          利用可行的决策，求出可行解的一个解元素；</span><br><span class="line">    &#125;</span><br><span class="line">    由所有解元素组合成问题的一个可行解；</span><br></pre></td></tr></table></figure>
-<h2 id="走迷宫一样的-回溯-算法思想"><a href="#走迷宫一样的-回溯-算法思想" class="headerlink" title="走迷宫一样的 回溯 算法思想"></a>走迷宫一样的 回溯 算法思想</h2><p>回溯算法实际上一个类似枚举的搜索尝试过程，主要是在搜索尝试过程中寻找问题的解，当发现已不满足求解条件时，就“回溯”返回，尝试别的路径。</p>
-<p>回溯法是一种选优搜索法，按选优条件向前搜索，以达到目标。但当探索到某一步时，发现原先选择并不优或达不到目标，就退回一步重新选择，这种走不通就退回再走的技术为回溯法，而满足回溯条件的某个状态的点称为“回溯点”。</p>
-<p>基本思想:  在包含问题的所有解的解空间树中，按照深度优先搜索的策略，从根结点出发深度探索解空间树。当探索到某一结点时，要先判断该结点是否包含问题的解，如果包含，就从该结点出发继续探索下去，如果该结点不包含问题的解，则逐层向其祖先结点回溯。（其实回溯法就是对隐式图的深度优先搜索算法）。</p>
-<pre><code>若用回溯法求问题的所有解时，要回溯到根，且根结点的所有可行的子树都要已被搜索遍才结束。
-
-而若使用回溯法求任一个解时，只要搜索到问题的一个解就可以结束。
-</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2291,7 +2292,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2313,7 +2314,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
@@ -2542,6 +2543,19 @@
   
 
 
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
 
 
 

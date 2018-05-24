@@ -83,7 +83,7 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="categories">
 <meta property="og:url" content="http://sherwinxie.xyz/categories/index.html">
-<meta property="og:site_name" content="谢玮のBlog">
+<meta property="og:site_name" content="谢玮の技术Blog">
 <meta property="og:description" content="Doing is better than saying.">
 <meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2018-04-09T19:14:49.000Z">
@@ -108,11 +108,11 @@
       author: 'Author'
     },
     algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
+      applicationID: 'IBBB7O55IY',
+      apiKey: '689b1df622a8717252ea7fe5b9012794',
+      indexName: 'sherwinxie',
       hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+      labels: {"input_placeholder":"搜索谢玮的笔记","hits_empty":"抱歉，未在谢玮のBlog中发现您搜索的内容: ${query}","hits_stats":"发现 ${hits} 个结果，耗时 ${time} ms"}
     }
   };
 </script>
@@ -125,7 +125,7 @@
 
 
 
-  <title>categories | 谢玮のBlog</title>
+  <title>categories | 谢玮の技术Blog</title>
   
 
 
@@ -155,12 +155,12 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">谢玮のBlog</span>
+        <span class="site-title">谢玮の技术Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle">Doing is better than saying.</p>
+        <p class="site-subtitle">不积跬步，无以至千里，不积小流，无以成江海。</p>
       
   </div>
 
@@ -211,9 +211,47 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
   
 </nav>
 
@@ -252,7 +290,7 @@
                 4 categories in total
             </div>
             <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/探索/">探索</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/阅读/">阅读</a><span class="category-list-count">1</span></li></ul>
+              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/探索/">探索</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/阅读/">阅读</a><span class="category-list-count">1</span></li></ul>
             </div>
           </div>
         
@@ -316,7 +354,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -338,7 +376,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
@@ -571,6 +609,19 @@
   
 
 
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
 
 
 

@@ -84,7 +84,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Five-levels engineer &amp; Career development">
 <meta property="og:url" content="http://sherwinxie.xyz/五级工程师和职业发展/index.html">
-<meta property="og:site_name" content="谢玮のBlog">
+<meta property="og:site_name" content="谢玮の技术Blog">
 <meta property="og:description" content="摘自「得到」专栏《吴军的Google方法论》 —— 五级工程师和职业发展 我们先来定一个对专业人士的评价体系，这个体系不是我发明的，而是苏联著名的物理学家朗道。 朗道一生有三个贡献。首先作为一个科学家，他发明了朗道变换，并因此而获得诺贝尔奖。 其次，作为一个教育者，他创立了一个被称为”朗道堡垒”的理论物理进阶练习，这实际上是一系列越来越难的物理学练习题，一个学习理论物理的人可以看看自己能攻克多少">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://sherwinxie.xyz/images/stonehenge-architecture-history-monolith-239.jpg">
@@ -111,11 +111,11 @@
       author: 'Author'
     },
     algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
+      applicationID: 'IBBB7O55IY',
+      apiKey: '689b1df622a8717252ea7fe5b9012794',
+      indexName: 'sherwinxie',
       hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+      labels: {"input_placeholder":"搜索谢玮的笔记","hits_empty":"抱歉，未在谢玮のBlog中发现您搜索的内容: ${query}","hits_stats":"发现 ${hits} 个结果，耗时 ${time} ms"}
     }
   };
 </script>
@@ -128,7 +128,7 @@
 
 
 
-  <title>Five-levels engineer & Career development | 谢玮のBlog</title>
+  <title>Five-levels engineer & Career development | 谢玮の技术Blog</title>
   
 
 
@@ -158,12 +158,12 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">谢玮のBlog</span>
+        <span class="site-title">谢玮の技术Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle">Doing is better than saying.</p>
+        <p class="site-subtitle">不积跬步，无以至千里，不积小流，无以成江海。</p>
       
   </div>
 
@@ -214,9 +214,47 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
   
 </nav>
 
@@ -254,7 +292,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="谢玮のBlog">
+      <meta itemprop="name" content="谢玮の技术Blog">
     </span>
 
     
@@ -385,6 +423,30 @@
     
 
     
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Love me and you'll reward me ~</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechat-reward-image.png" alt="SherwinX WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
 
     
 
@@ -498,7 +560,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -520,7 +582,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
@@ -769,6 +831,19 @@
   
 
 
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
 
 
 
