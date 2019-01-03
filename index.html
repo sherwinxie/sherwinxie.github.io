@@ -1289,172 +1289,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://sherwinxie.xyz/工厂模式总结/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="SherwinX">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="谢玮の技术Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/工厂模式总结/" itemprop="url">工厂模式总结</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-29T00:00:00+08:00">
-                2018-04-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/设计模式/" itemprop="url" rel="index">
-                    <span itemprop="name">设计模式</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="工厂模式是什么"><a href="#工厂模式是什么" class="headerlink" title="工厂模式是什么?"></a>工厂模式是什么?</h3><p>工厂模式主要是为创建对象提供了过渡接口，以便将创建对象的具体过程屏蔽隔离起来，达到提高灵活性的目的。 </p>
-<h5 id="GOF在《设计模式》一书中将工厂模式分为两大类："><a href="#GOF在《设计模式》一书中将工厂模式分为两大类：" class="headerlink" title="GOF在《设计模式》一书中将工厂模式分为两大类："></a>GOF在《设计模式》一书中将工厂模式分为两大类：</h5><ul>
-<li>工厂方法模式（Factory Method）</li>
-<li>抽象工厂模式（Abstract Factory）。</li>
-</ul>
-<p>将简单工厂模式（Simple Factory）看为工厂方法模式的一种特例，两者归为一类。</p>
-<h4 id="工厂模式的常见类型："><a href="#工厂模式的常见类型：" class="headerlink" title="工厂模式的常见类型："></a>工厂模式的常见类型：</h4><h5 id="1）简单工厂模式（Simple-Factory）"><a href="#1）简单工厂模式（Simple-Factory）" class="headerlink" title="1）简单工厂模式（Simple Factory）"></a>1）简单工厂模式（Simple Factory）</h5><p>简单工厂模式是属于创建型模式，又叫做静态工厂方法（Static Factory Method）模式，但不属于23种GOF设计模式之一。</p>
-<p>简单工厂模式是由一个工厂对象决定创建出哪一种产品类的实例。简单工厂模式是工厂模式家族中最简单实用的模式，可以理解为是不同工厂模式的一个特殊实现。</p>
-<p>这个缺点是每添一个对象，就需要对简单工厂进行修改（尽管不是删代码，仅仅是添一个switch case，但仍然违背了“不改代码”的开闭原则，不利于拓展）</p>
-<p>比如下图中的鼠标工厂和Mouse接口，专业生产鼠标，给参数0，生产戴尔鼠标，给参数1，生产惠普鼠标。<br><img src="https://ws2.sinaimg.cn/large/006tKfTcly1frfe6e6lrlj30k0078aaa.jpg" alt="simple"></p>
-<h5 id="2）工厂方法模式（Factory-Method）"><a href="#2）工厂方法模式（Factory-Method）" class="headerlink" title="2）工厂方法模式（Factory Method）"></a>2）工厂方法模式（Factory Method）</h5><p>本质就是代替new创建对象，每种产品由一种工厂来创建，一个工厂保存一个new，工厂方法模式,其原理就是对简单工厂也进行抽象。</p>
-<p>UML图解:</p>
-<p>生产哪种鼠标不再由参数决定，而是创建鼠标工厂时，由戴尔鼠标工厂创建。 后续直接调用具体鼠标工厂.生产鼠标()即可<br><img src="https://ws4.sinaimg.cn/large/006tKfTcly1frfe7amg36j30k007t0t5.jpg" alt="fac"></p>
-<h5 id="3）抽象工厂模式（Abstract-Factory）"><a href="#3）抽象工厂模式（Abstract-Factory）" class="headerlink" title="3）抽象工厂模式（Abstract Factory）"></a>3）抽象工厂模式（Abstract Factory）</h5><p>一个抽象工厂类，多个产品抽象类或接口（Mouse，Keybo），每个抽象产品类可以派生出多个具体产品类。   </p>
-<p>一个抽象工厂类，可以派生出多个具体工厂类。每个具体工厂类可以创建多个具体产品类的实例。</p>
-<p>和2)工厂方法模式的区别：</p>
-<ul>
-<li>工厂方法模式只有一个抽象产品类，而抽象工厂模式有多个。  </li>
-<li>工厂方法模式的具体工厂类只能创建一个具体产品类的实例，而抽象工厂模式可以创建多个。</li>
-</ul>
-<p>UML图解:</p>
-<p>抽象工厂模式也就是不仅生产鼠标，还可以生产键盘。也就是PC厂商是个父类，有生产鼠标，生产键盘两个接口。<br><img src="https://ws2.sinaimg.cn/large/006tKfTcly1frfe8lpxjdj30k00bjt9i.jpg" alt="ab"></p>
-<p>在抽象工厂模式中，假设我们需要再增加一个工厂，符合开闭原则。</p>
-<p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1frffgi5uv4j30k009nmy4.jpg" alt="add"></p>
-<p>添加一个产品同理。但需要注意的是如添加一个音响，在具体品牌工厂中填写对应创建该音响产品的方法。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://sherwinxie.xyz/单例模式总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1586,6 +1420,172 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> Singleton &#123;</span><br><span class="line">  INSTANCE; <span class="comment">//定义一个枚举的元素，它就代表了Singleton的一个实例。</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">//单例可以有自定义的操作方法</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">whatSoEverMethod</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      <span class="comment">//功能处理</span></span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 该方法非必须，只是为了保证与其它方案一样使用静态方法得到实例</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> INSTANCE;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>优点：枚举本身是线程安全的，且能防止通过反射和反序列化创建多实例，是更简洁、高效、安全的实现单例的方式。</p>
 <p>缺点：使用的是枚举，而非类。 </p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://sherwinxie.xyz/工厂模式总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="SherwinX">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="谢玮の技术Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/工厂模式总结/" itemprop="url">工厂模式总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-29T00:00:00+08:00">
+                2018-04-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/设计模式/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="工厂模式是什么"><a href="#工厂模式是什么" class="headerlink" title="工厂模式是什么?"></a>工厂模式是什么?</h3><p>工厂模式主要是为创建对象提供了过渡接口，以便将创建对象的具体过程屏蔽隔离起来，达到提高灵活性的目的。 </p>
+<h5 id="GOF在《设计模式》一书中将工厂模式分为两大类："><a href="#GOF在《设计模式》一书中将工厂模式分为两大类：" class="headerlink" title="GOF在《设计模式》一书中将工厂模式分为两大类："></a>GOF在《设计模式》一书中将工厂模式分为两大类：</h5><ul>
+<li>工厂方法模式（Factory Method）</li>
+<li>抽象工厂模式（Abstract Factory）。</li>
+</ul>
+<p>将简单工厂模式（Simple Factory）看为工厂方法模式的一种特例，两者归为一类。</p>
+<h4 id="工厂模式的常见类型："><a href="#工厂模式的常见类型：" class="headerlink" title="工厂模式的常见类型："></a>工厂模式的常见类型：</h4><h5 id="1）简单工厂模式（Simple-Factory）"><a href="#1）简单工厂模式（Simple-Factory）" class="headerlink" title="1）简单工厂模式（Simple Factory）"></a>1）简单工厂模式（Simple Factory）</h5><p>简单工厂模式是属于创建型模式，又叫做静态工厂方法（Static Factory Method）模式，但不属于23种GOF设计模式之一。</p>
+<p>简单工厂模式是由一个工厂对象决定创建出哪一种产品类的实例。简单工厂模式是工厂模式家族中最简单实用的模式，可以理解为是不同工厂模式的一个特殊实现。</p>
+<p>这个缺点是每添一个对象，就需要对简单工厂进行修改（尽管不是删代码，仅仅是添一个switch case，但仍然违背了“不改代码”的开闭原则，不利于拓展）</p>
+<p>比如下图中的鼠标工厂和Mouse接口，专业生产鼠标，给参数0，生产戴尔鼠标，给参数1，生产惠普鼠标。<br><img src="https://ws2.sinaimg.cn/large/006tKfTcly1frfe6e6lrlj30k0078aaa.jpg" alt="simple"></p>
+<h5 id="2）工厂方法模式（Factory-Method）"><a href="#2）工厂方法模式（Factory-Method）" class="headerlink" title="2）工厂方法模式（Factory Method）"></a>2）工厂方法模式（Factory Method）</h5><p>本质就是代替new创建对象，每种产品由一种工厂来创建，一个工厂保存一个new，工厂方法模式,其原理就是对简单工厂也进行抽象。</p>
+<p>UML图解:</p>
+<p>生产哪种鼠标不再由参数决定，而是创建鼠标工厂时，由戴尔鼠标工厂创建。 后续直接调用具体鼠标工厂.生产鼠标()即可<br><img src="https://ws4.sinaimg.cn/large/006tKfTcly1frfe7amg36j30k007t0t5.jpg" alt="fac"></p>
+<h5 id="3）抽象工厂模式（Abstract-Factory）"><a href="#3）抽象工厂模式（Abstract-Factory）" class="headerlink" title="3）抽象工厂模式（Abstract Factory）"></a>3）抽象工厂模式（Abstract Factory）</h5><p>一个抽象工厂类，多个产品抽象类或接口（Mouse，Keybo），每个抽象产品类可以派生出多个具体产品类。   </p>
+<p>一个抽象工厂类，可以派生出多个具体工厂类。每个具体工厂类可以创建多个具体产品类的实例。</p>
+<p>和2)工厂方法模式的区别：</p>
+<ul>
+<li>工厂方法模式只有一个抽象产品类，而抽象工厂模式有多个。  </li>
+<li>工厂方法模式的具体工厂类只能创建一个具体产品类的实例，而抽象工厂模式可以创建多个。</li>
+</ul>
+<p>UML图解:</p>
+<p>抽象工厂模式也就是不仅生产鼠标，还可以生产键盘。也就是PC厂商是个父类，有生产鼠标，生产键盘两个接口。<br><img src="https://ws2.sinaimg.cn/large/006tKfTcly1frfe8lpxjdj30k00bjt9i.jpg" alt="ab"></p>
+<p>在抽象工厂模式中，假设我们需要再增加一个工厂，符合开闭原则。</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1frffgi5uv4j30k009nmy4.jpg" alt="add"></p>
+<p>添加一个产品同理。但需要注意的是如添加一个音响，在具体品牌工厂中填写对应创建该音响产品的方法。</p>
 
           
         
